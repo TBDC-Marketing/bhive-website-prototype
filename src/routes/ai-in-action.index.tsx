@@ -1,8 +1,7 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useMemo } from "react";
-import { CTAButton, Eyebrow, PageHero, Reveal, Section } from "../components/site/primitives";
+import { CTAButton, PageHero, Reveal, Section } from "../components/site/primitives";
 import { useCases } from "../content/site";
-import { ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/ai-in-action/")({
   head: () => ({
