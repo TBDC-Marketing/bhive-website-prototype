@@ -8,7 +8,7 @@ import {
   Section,
 } from "../components/site/primitives";
 import { useCases, fieldGuides, insights } from "../content/site";
-import { upcomingEvents } from "../content/events";
+import { events, isUpcoming } from "../content/events";
 
 export const Route = createFileRoute("/resources")({
   head: () => ({
