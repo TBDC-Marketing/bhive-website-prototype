@@ -1,8 +1,7 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useMemo } from "react";
-import { CTAButton, Eyebrow, PageHero, Reveal, Section } from "../components/site/primitives";
+import { CTAButton, PageHero, Reveal, Section } from "../components/site/primitives";
 import { useCases } from "../content/site";
-import { ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/ai-in-action/")({
   head: () => ({
@@ -16,7 +15,7 @@ export const Route = createFileRoute("/ai-in-action/")({
   component: UseCaseLibrary,
 });
 
-const functions = ["All", "Operations", "Sales", "Marketing", "Finance", "Customer Service", "HR", "IT"];
+const functions = ["All", "Operations", "Sales", "Finance", "Customer Service", "HR"];
 const starts = ["All", "New", "Experimenting", "Ready"];
 
 function UseCaseLibrary() {

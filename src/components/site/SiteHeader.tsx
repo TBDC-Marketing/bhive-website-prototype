@@ -1,19 +1,23 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
 
-const nav = [
-  { to: "/bnext-ai", label: "BNext AI" },
+const primaryNav = [
+  { to: "/bnext-ai", label: "Program" },
   { to: "/how-it-works", label: "How it works" },
-  { to: "/start", label: "Start here" },
   { to: "/ai-in-action", label: "AI in action" },
+] as const;
+
+const resources = [
   { to: "/field-guides", label: "Field guides" },
+  { to: "/insights", label: "Insights" },
   { to: "/events", label: "Events" },
-  { to: "/about", label: "About" },
-];
+  { to: "/search", label: "Search resources" },
+] as const;
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [resOpen, setResOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-paper/85 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4">
@@ -29,7 +33,7 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex">
-          {nav.map((n) => (
+          {primaryNav.map((n) => (
             <Link
               key={n.to}
               to={n.to}
@@ -39,6 +43,47 @@ export function SiteHeader() {
               {n.label}
             </Link>
           ))}
+          <div
+            className="relative"
+            onMouseEnter={() => setResOpen(true)}
+            onMouseLeave={() => setResOpen(false)}
+          >
+            <button
+              type="button"
+              aria-haspopup="menu"
+              aria-expanded={resOpen}
+              onClick={() => setResOpen((v) => !v)}
+              className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-ink"
+            >
+              Resources
+              <ChevronDown className="h-3.5 w-3.5" />
+            </button>
+            {resOpen && (
+              <div
+                role="menu"
+                className="absolute left-0 top-full min-w-52 rounded-md border border-border bg-paper p-2 shadow-[var(--shadow-frame)]"
+              >
+                {resources.map((r) => (
+                  <Link
+                    key={r.to}
+                    to={r.to}
+                    role="menuitem"
+                    onClick={() => setResOpen(false)}
+                    className="block rounded-sm px-3 py-2 text-sm text-ink hover:bg-muted"
+                  >
+                    {r.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+          <Link
+            to="/about"
+            className="text-sm text-muted-foreground transition-colors hover:text-ink"
+            activeProps={{ className: "text-ink font-medium" }}
+          >
+            About
+          </Link>
         </nav>
 
         <div className="flex items-center gap-3">
@@ -49,7 +94,8 @@ export function SiteHeader() {
             Find your starting point
           </Link>
           <button
-            aria-label="Menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
             className="lg:hidden"
             onClick={() => setOpen((v) => !v)}
           >
@@ -60,7 +106,7 @@ export function SiteHeader() {
       {open && (
         <div className="border-t border-border/60 bg-paper lg:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4">
-            {nav.map((n) => (
+            {primaryNav.map((n) => (
               <Link
                 key={n.to}
                 to={n.to}
@@ -70,6 +116,24 @@ export function SiteHeader() {
                 {n.label}
               </Link>
             ))}
+            <p className="mt-3 eyebrow text-muted-foreground">Resources</p>
+            {resources.map((r) => (
+              <Link
+                key={r.to}
+                to={r.to}
+                onClick={() => setOpen(false)}
+                className="py-2 text-base text-ink"
+              >
+                {r.label}
+              </Link>
+            ))}
+            <Link
+              to="/about"
+              onClick={() => setOpen(false)}
+              className="mt-3 py-2 text-base text-ink"
+            >
+              About
+            </Link>
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
