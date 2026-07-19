@@ -16,7 +16,7 @@ export const Route = createFileRoute("/ai-in-action/")({
   component: UseCaseLibrary,
 });
 
-const functions = ["All", "Operations", "Sales", "Marketing", "Finance", "Customer Service", "HR", "IT"];
+const functions = ["All", "Operations", "Sales", "Finance", "Customer Service", "HR"];
 const starts = ["All", "New", "Experimenting", "Ready"];
 
 function UseCaseLibrary() {
