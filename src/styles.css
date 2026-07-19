@@ -4,14 +4,16 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* The BHive design system
- * Palette: institutional navy (ink), warm paper white, honeycomb amber signal
- * Typography: Fraunces (display serif) + Inter Tight (grotesk body) via <link> in __root
+/* BNEXT AI / The BHive v2 design system
+ * Palette: BNEXT black (ink), pure paper white, BNEXT yellow (honey signal), sky accent
+ * Typography: Inter Tight throughout, tight tracking on display
  */
 
 @theme inline {
-  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-display: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --color-sky: var(--sky);
+  --color-sky-soft: var(--sky-soft);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
