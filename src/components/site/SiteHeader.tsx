@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
+import bhiveLogo from "@/assets/bhive-logo.png.asset.json";
 
 const primaryNav = [
   { to: "/bnext-ai", label: "Program" },
@@ -21,15 +22,12 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-paper/85 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4">
-        <Link to="/" className="group flex items-center gap-2.5">
-          <span className="grid h-8 w-8 place-items-center rounded-sm bg-ink text-honey" aria-hidden>
-            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
-              <path d="M12 2 22 7v10l-10 5L2 17V7z" />
-            </svg>
-          </span>
-          <span className="font-display text-lg leading-none">
-            The <span className="font-semibold">BHive</span>
-          </span>
+        <Link to="/" className="group flex items-center" aria-label="The BHive — home">
+          <img
+            src={bhiveLogo.url}
+            alt="The BHive"
+            className="h-8 w-auto md:h-9"
+          />
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex">
