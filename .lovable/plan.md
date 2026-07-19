@@ -1,89 +1,56 @@
 
-# The BHive Website — Phase A + B Plan
+# Phase C — Remaining pages from the blueprint
 
-Frontend-only build using the blueprint's written visual/motion system. Figma will be layered in later once Lovable Desktop MCP is connected — the design tokens defined here will be adjusted at that point.
+Frontend-only, no backend. Forms render + validate but don't persist. Static content lives in `src/content/*` alongside the existing modules. All routes follow the established design system (navy/honey/paper, Fraunces/Inter Tight, `Section` / `PageHero` / `Reveal` primitives) and each defines its own `head()` with unique title/description/og.
 
-## Scope
+## Already built (skip)
+Home, BNext AI, How it works, Start + 3 paths, AI in Action (+detail), Stories (+detail), Field Guides (+detail), Insights (+detail), About, Contact, __root 404.
 
-**Phase A (foundation):**
-- Home (`/`)
-- BNext AI program (`/bnext-ai`)
-- How BNext Works (`/how-it-works`)
-- About The BHive (`/about`)
-- Contact (`/contact`)
-- Global header, footer, sticky route CTA, Beacon concierge stub
+## Pages to build
 
-**Phase B (three doors + proof system):**
-- Find Your Starting Point / Readiness Check (`/start`)
-- New to AI (`/paths/new`)
-- Experimenting with AI (`/paths/experimenting`)
-- Ready to Implement (`/paths/ready`)
-- AI in Action / Use-Case Library (`/use-cases`) + detail template (`/use-cases/$slug`)
-- Client Stories (`/stories`) + detail (`/stories/$slug`)
-- Field Guides (`/field-guides`) + detail (`/field-guides/$slug`)
-- Insights (`/insights`) + detail (`/insights/$slug`)
+### Proof & content hubs
+- `demos.index.tsx` — Page 12 Demos & Prototypes: gallery of narrated demo cards, "what a demo is / isn't" strip, request-a-walkthrough CTA.
+- `signal.index.tsx` — Page 17 BNext Signal: newsletter hub, latest issue teaser, past-issues list, signup form (no persist).
+- `signal.$issue.tsx` — Page 17A issue template.
+- `events.index.tsx` — Page 18: upcoming + past events grid, filter by type (briefing, workshop, cohort kickoff).
+- `events.$slug.tsx` — Page 19 event detail template with RSVP form stub.
 
-Forms (EOI, Readiness, Contact) render and validate but do not persist — backend deferred.
+### Trust
+- `team.tsx` — Page 21 Team & Advisors: leadership + advisor grid, bios, roles.
+- `partners.tsx` — Page 22 Partners & Referrals: partner logos/tiers, "refer a business" form stub.
+- `vendor-network.tsx` — Page 23: how the network works, categories, participation rules.
+- `vendors.apply.tsx` — Page 24 Become a Vendor: application form (react-hook-form + zod, no submit).
 
-## Design system
+### Conversion & state
+- `eligibility.tsx` — Page 25 Eligibility & FAQ: fit criteria, expandable FAQ.
+- `apply.index.tsx` — Page 26 Program EOI: multi-section form (business, stage, use-case hypothesis, stakeholders) — validates only.
+- `apply.confirmation.tsx` — Page 28: post-submit state page (reachable via router state / direct URL).
+- `start.results.tsx` — Page 27 Personalized Readiness Result: reads answers from query params written by existing `start.index.tsx` check, renders recommended path + next actions.
 
-Establish in `src/styles.css` before pages:
-- Palette: institutional navy + honeycomb amber accent, warm off-white paper, ink black. All via oklch tokens.
-- Typography: distinctive serif display + clean grotesk body (e.g. Fraunces / Inter Tight) loaded via `<link>` in `__root.tsx`.
-- Radius, elevation, and a `--gradient-honey` + `--shadow-frame` for section framing.
-- Motion primitives via framer-motion: section reveal, sticky-CTA slide-in, hex-grid hover.
+### Participant area (visual stubs)
+- `participants.index.tsx` — Page 30 sign-in form UI, "auth coming soon" note.
+- `participants.dashboard.tsx` — Page 31 dashboard shell with placeholder journey/artifact cards.
 
-## Information architecture
+### Campaign templates (one representative instance each)
+- `sectors.$sector.tsx` — Page 32 with one seeded sector (e.g. `manufacturing`).
+- `referral.$partner.tsx` — Page 33.
+- `campaign.$campaign.tsx` — Page 34.
 
-```
-src/routes/
-  __root.tsx           (header, footer, sticky CTA, meta)
-  index.tsx            Home
-  bnext-ai.tsx
-  how-it-works.tsx
-  start.tsx            Readiness check
-  paths.new.tsx
-  paths.experimenting.tsx
-  paths.ready.tsx
-  use-cases.tsx
-  use-cases.$slug.tsx
-  stories.tsx
-  stories.$slug.tsx
-  field-guides.tsx
-  field-guides.$slug.tsx
-  insights.tsx
-  insights.$slug.tsx
-  about.tsx
-  contact.tsx
-```
+### Utility & legal
+- `search.tsx` — Page 35: client-side filter over static content (use-cases, guides, insights, stories).
+- `privacy.tsx`, `terms.tsx`, `accessibility.tsx`, `cookies.tsx` — Pages 37–40 long-form legal templates using shared `LegalLayout`.
+- Page 36 (404) already handled in `__root.tsx`.
 
-Each route defines its own `head()` with unique title/description/og. Detail routes derive og from loader data.
+## Shared additions
+- `src/content/team.ts`, `src/content/events.ts`, `src/content/signal.ts`, `src/content/partners.ts`, `src/content/vendors.ts`, `src/content/demos.ts`, `src/content/faq.ts` — typed arrays seeded from blueprint copy.
+- `src/components/site/LegalLayout.tsx` — shared TOC + prose wrapper for legal pages.
+- `src/components/site/FormField.tsx` — small wrapper over shadcn inputs for the EOI / vendor / referral / RSVP forms.
+- Extend `SiteHeader` / `SiteFooter` nav with Demos, Signal, Events, Team, Partners, Eligibility, Apply, Legal.
 
-## Content strategy
-
-Use-cases, stories, field guides, insights are static TS content modules under `src/content/` (typed arrays). This keeps Phase B shippable without a CMS and swaps cleanly to Lovable Cloud later.
-
-## Shared components (`src/components/`)
-
-- `SiteHeader`, `SiteFooter`, `StickyRouteCTA`, `BeaconStub`
-- `Hero`, `PromiseBlock`, `RouteCard` (three-door), `ProofStrip`, `UseCaseCard`, `StoryCard`, `GuideCard`, `InsightCard`
-- `ReadinessCheck` (multi-step client form, results routed to `/paths/*`)
-- `EOIForm`, `ContactForm` (react-hook-form + zod, no submit backend)
-- `SectionReveal` motion wrapper
-
-## Copy source
-
-Pull verbatim headlines, promises, and section copy from the blueprint's Page 01–19 sections. No lorem ipsum.
-
-## Out of scope this plan
-- Vendor network, events, team, participant sign-in, dashboard, sector/partner/campaign landing templates, search, legal pages (Phase C + later)
-- Real form persistence, auth, CMS
-- Figma-derived pixel matching (revisit once desktop MCP is live)
+## Out of scope (deferred)
+- Real form persistence, auth, dashboard data — waits for Lovable Cloud.
+- Full library of sector/referral/campaign instances (only one seed each).
+- Full Signal / Events / Demos content — placeholder entries with blueprint copy.
 
 ## Verification
-
-After build: check console/network clean, screenshot Home + BNext AI + one path page + one detail template via Playwright at 1280×1800 to confirm hierarchy and tokens.
-
-## Follow-ups after approval
-1. Set up Lovable Desktop + Figma Dev Mode MCP so I can pull tokens/frames.
-2. Phase C: forms → Lovable Cloud, participant auth, dashboard, remaining templates.
+After build: typecheck clean; Playwright screenshot Apply, Eligibility, Events, Signal, Team, and one legal page at 1280×1800 to confirm tokens and hierarchy.
