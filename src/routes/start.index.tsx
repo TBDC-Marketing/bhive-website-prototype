@@ -3,7 +3,7 @@ import { CTAButton, Eyebrow, PageHero, Reveal, Section } from "../components/sit
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
-export const Route = createFileRoute("/start")({
+export const Route = createFileRoute("/start/")({
   head: () => ({
     meta: [
       { title: "Find your starting point — BNext AI readiness check" },

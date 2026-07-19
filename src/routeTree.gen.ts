@@ -9,16 +9,11 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as StartRouteImport } from './routes/start'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as BnextAiRouteImport } from './routes/bnext-ai'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as StartIndexRouteImport } from './routes/start.index'
 
-const StartRoute = StartRouteImport.update({
-  id: '/start',
-  path: '/start',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const HowItWorksRoute = HowItWorksRouteImport.update({
   id: '/how-it-works',
   path: '/how-it-works',
@@ -34,50 +29,48 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StartIndexRoute = StartIndexRouteImport.update({
+  id: '/start/',
+  path: '/start/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bnext-ai': typeof BnextAiRoute
   '/how-it-works': typeof HowItWorksRoute
-  '/start': typeof StartRoute
+  '/start/': typeof StartIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bnext-ai': typeof BnextAiRoute
   '/how-it-works': typeof HowItWorksRoute
-  '/start': typeof StartRoute
+  '/start': typeof StartIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bnext-ai': typeof BnextAiRoute
   '/how-it-works': typeof HowItWorksRoute
-  '/start': typeof StartRoute
+  '/start/': typeof StartIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bnext-ai' | '/how-it-works' | '/start'
+  fullPaths: '/' | '/bnext-ai' | '/how-it-works' | '/start/'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/bnext-ai' | '/how-it-works' | '/start'
-  id: '__root__' | '/' | '/bnext-ai' | '/how-it-works' | '/start'
+  id: '__root__' | '/' | '/bnext-ai' | '/how-it-works' | '/start/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BnextAiRoute: typeof BnextAiRoute
   HowItWorksRoute: typeof HowItWorksRoute
-  StartRoute: typeof StartRoute
+  StartIndexRoute: typeof StartIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/start': {
-      id: '/start'
-      path: '/start'
-      fullPath: '/start'
-      preLoaderRoute: typeof StartRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/how-it-works': {
       id: '/how-it-works'
       path: '/how-it-works'
@@ -99,6 +92,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/start/': {
+      id: '/start/'
+      path: '/start'
+      fullPath: '/start/'
+      preLoaderRoute: typeof StartIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -106,7 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BnextAiRoute: BnextAiRoute,
   HowItWorksRoute: HowItWorksRoute,
-  StartRoute: StartRoute,
+  StartIndexRoute: StartIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
