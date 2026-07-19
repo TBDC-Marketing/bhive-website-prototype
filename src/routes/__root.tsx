@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "../components/site/SiteHeader";
 import { SiteFooter } from "../components/site/SiteFooter";
 import { StickyRouteCTA } from "../components/site/StickyRouteCTA";
+import { AnnouncementBar } from "../components/site/AnnouncementBar";
 
 function NotFoundComponent() {
   return (
