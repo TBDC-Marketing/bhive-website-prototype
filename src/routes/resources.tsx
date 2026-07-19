@@ -111,7 +111,7 @@ function ResourcesHub() {
             </div>
           </Reveal>
           <ul className="mt-10 divide-y divide-border border-y border-border">
-            {events.map((e) => (
+            {upcoming.map((e) => (
               <li key={e.slug}>
                 <Link
                   to="/events/$slug"
