@@ -8,8 +8,7 @@ const nav = [
   { to: "/start", label: "Start here" },
   { to: "/ai-in-action", label: "AI in action" },
   { to: "/field-guides", label: "Field guides" },
-  { to: "/insights", label: "Insights" },
-  { to: "/stories", label: "Stories" },
+  { to: "/events", label: "Events" },
   { to: "/about", label: "About" },
 ];
 
