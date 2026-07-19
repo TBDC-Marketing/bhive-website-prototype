@@ -91,7 +91,7 @@ function ResourcesHub() {
       </Section>
 
       {/* Upcoming events strip */}
-      {events.length > 0 && (
+      {upcoming.length > 0 && (
         <Section bg="muted">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-6">
