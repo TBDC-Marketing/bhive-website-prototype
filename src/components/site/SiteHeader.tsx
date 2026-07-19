@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
+import bhiveLogo from "@/assets/bhive-logo.png.asset.json";
 
 const primaryNav = [
   { to: "/bnext-ai", label: "Program" },
