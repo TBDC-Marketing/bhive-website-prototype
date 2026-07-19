@@ -148,3 +148,107 @@ export function StatRow({ items }: { items: string[] }) {
  */
 export const GEOGRAPHY_LINE =
   "For established Ontario businesses; delivered in person in Brampton (Peel Region).";
+
+/**
+ * SplitHero — asymmetric two-column hero for landing/service pages.
+ */
+export function SplitHero({
+  eyebrow,
+  title,
+  lede,
+  ctas,
+  aside,
+}: {
+  eyebrow: string;
+  title: ReactNode;
+  lede?: ReactNode;
+  ctas?: ReactNode;
+  aside?: ReactNode;
+}) {
+  return (
+    <section className="bg-paper border-b border-border/50">
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 pt-16 pb-20 md:grid-cols-12 md:pt-24 md:pb-28">
+        <div className="md:col-span-7">
+          <Reveal eager>
+            <p className="eyebrow text-honey-deep">{eyebrow}</p>
+            <h1 className="mt-6 font-display text-5xl leading-[1.02] md:text-7xl">
+              {title}
+            </h1>
+            {lede && (
+              <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+                {lede}
+              </p>
+            )}
+            {ctas && <div className="mt-10 flex flex-wrap gap-4">{ctas}</div>}
+          </Reveal>
+        </div>
+        {aside && (
+          <div className="md:col-span-5 md:pl-8">
+            <Reveal eager delay={0.05}>
+              {aside}
+            </Reveal>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+/**
+ * DarkBrandBand — full-bleed dark section with a yellow signal accent.
+ */
+export function DarkBrandBand({
+  eyebrow,
+  title,
+  children,
+  className = "",
+}: {
+  eyebrow?: string;
+  title?: ReactNode;
+  children?: ReactNode;
+  className?: string;
+}) {
+  return (
+    <section className={`bg-ink text-paper ${className}`}>
+      <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+        {eyebrow && <p className="eyebrow text-honey">{eyebrow}</p>}
+        {title && (
+          <h2 className="mt-6 max-w-4xl font-display text-4xl leading-tight md:text-6xl">
+            {title}
+          </h2>
+        )}
+        {children && <div className="mt-10">{children}</div>}
+      </div>
+    </section>
+  );
+}
+
+/**
+ * MetricGrid — labeled figures with optional source line.
+ */
+export function MetricGrid({
+  items,
+  source,
+}: {
+  items: { value: string; label: string }[];
+  source?: string;
+}) {
+  return (
+    <div>
+      <div className="grid gap-8 md:grid-cols-4">
+        {items.map((m, i) => (
+          <div key={i} className="border-t border-border pt-4">
+            <p className="font-display text-4xl md:text-5xl">{m.value}</p>
+            <p className="mt-2 text-sm text-muted-foreground">{m.label}</p>
+          </div>
+        ))}
+      </div>
+      {source && (
+        <p className="mt-6 text-xs uppercase tracking-widest text-muted-foreground">
+          Source: {source}
+        </p>
+      )}
+    </div>
+  );
+}
+
