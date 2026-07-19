@@ -54,7 +54,7 @@ function EventDetail() {
             <div>
               <p className="eyebrow text-honey-deep">What we will cover</p>
               <ul className="mt-4 space-y-2 text-lg text-ink">
-                {e.agenda.map((a) => <li key={a} className="flex gap-3"><span className="text-honey-deep">·</span>{a}</li>)}
+                {e.agenda.map((a: string) => <li key={a} className="flex gap-3"><span className="text-honey-deep">·</span>{a}</li>)}
               </ul>
             </div>
           </div>
