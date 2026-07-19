@@ -33,8 +33,24 @@ function ApplyPage() {
       />
 
       <Section bg="paper">
+        {/* Mobile compact progress */}
+        <div className="mb-6 md:hidden">
+          <div className="flex items-center gap-1.5">
+            {steps.map((_, i) => (
+              <span
+                key={i}
+                className={`h-1 flex-1 rounded-full ${i <= step ? "bg-honey" : "bg-border"}`}
+              />
+            ))}
+          </div>
+          <p className="mt-3 text-sm text-ink">
+            <span className="text-muted-foreground">Step {step + 1} of {steps.length} — </span>
+            <span className="font-medium">{steps[step]}</span>
+          </p>
+        </div>
+
         <div className="grid gap-12 md:grid-cols-[220px_1fr]">
-          <aside>
+          <aside className="hidden md:block">
             <p className="eyebrow text-honey-deep">Route · 6 waypoints</p>
             <ol className="mt-4 space-y-2 text-sm">
               {steps.map((s, i) => (
