@@ -6,6 +6,9 @@ export const Route = createFileRoute("/accessibility")({
     meta: [
       { title: "Accessibility — The BHive & BNext AI" },
       { name: "description", content: "Our commitment to accessible services and how to request accommodations." },
+      { property: "og:title", content: "Accessibility — The BHive & BNext AI" },
+      { property: "og:description", content: "Our commitment to accessible services and how to request accommodations." },
+      { property: "og:url", content: "https://bhive-bnextai-preview.lovable.app/accessibility" },
     ],
     links: [{ rel: "canonical", href: "/accessibility" }],
   }),

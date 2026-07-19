@@ -6,6 +6,9 @@ export const Route = createFileRoute("/terms")({
     meta: [
       { title: "Terms of Use — The BHive & BNext AI" },
       { name: "description", content: "Terms of use for the BNext AI website." },
+      { property: "og:title", content: "Terms of Use — The BHive & BNext AI" },
+      { property: "og:description", content: "Terms of use for the BNext AI website." },
+      { property: "og:url", content: "https://bhive-bnextai-preview.lovable.app/terms" },
     ],
     links: [{ rel: "canonical", href: "/terms" }],
   }),

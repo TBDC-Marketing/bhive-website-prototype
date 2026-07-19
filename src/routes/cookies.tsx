@@ -6,6 +6,9 @@ export const Route = createFileRoute("/cookies")({
     meta: [
       { title: "Cookie Notice — The BHive & BNext AI" },
       { name: "description", content: "How we use cookies and how to manage your preferences." },
+      { property: "og:title", content: "Cookie Notice — The BHive & BNext AI" },
+      { property: "og:description", content: "How we use cookies and how to manage your preferences." },
+      { property: "og:url", content: "https://bhive-bnextai-preview.lovable.app/cookies" },
     ],
     links: [{ rel: "canonical", href: "/cookies" }],
   }),
