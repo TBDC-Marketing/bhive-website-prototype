@@ -8,13 +8,19 @@ export const Route = createFileRoute("/stories/$slug")({
     if (!s) throw notFound();
     return { s };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     if (!loaderData) return { meta: [{ title: "Story not found" }, { name: "robots", content: "noindex" }] };
+    const url = `https://bhive-bnextai-preview.lovable.app/stories/${params.slug}`;
     return {
       meta: [
         { title: `${loaderData.s.headline} · Client story` },
         { name: "description", content: loaderData.s.problem },
+        { property: "og:title", content: loaderData.s.headline },
+        { property: "og:description", content: loaderData.s.problem },
+        { property: "og:type", content: "article" },
+        { property: "og:url", content: url },
       ],
+      links: [{ rel: "canonical", href: url }],
     };
   },
   notFoundComponent: () => (<Section bg="paper"><h1 className="font-display text-4xl">Story not found.</h1></Section>),

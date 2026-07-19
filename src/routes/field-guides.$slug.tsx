@@ -8,13 +8,18 @@ export const Route = createFileRoute("/field-guides/$slug")({
     if (!g) throw notFound();
     return { g };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     if (!loaderData) return { meta: [{ title: "Guide not found" }, { name: "robots", content: "noindex" }] };
+    const url = `https://bhive-bnextai-preview.lovable.app/field-guides/${params.slug}`;
     return {
       meta: [
         { title: `${loaderData.g.title} · Field guide` },
         { name: "description", content: loaderData.g.decision },
+        { property: "og:title", content: loaderData.g.title },
+        { property: "og:description", content: loaderData.g.decision },
+        { property: "og:url", content: url },
       ],
+      links: [{ rel: "canonical", href: url }],
     };
   },
   notFoundComponent: () => (<Section bg="paper"><h1 className="font-display text-4xl">Guide not found.</h1></Section>),

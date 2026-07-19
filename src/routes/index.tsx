@@ -18,6 +18,45 @@ export const Route = createFileRoute("/")({
         content:
           "From AI curiosity to AI working in your business. The BHive's BNext AI program helps established Peel businesses adopt AI with evidence.",
       },
+      { property: "og:url", content: "https://bhive-bnextai-preview.lovable.app/" },
+    ],
+    links: [{ rel: "canonical", href: "https://bhive-bnextai-preview.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "The BHive",
+          url: "https://bhive-bnextai-preview.lovable.app/",
+          description:
+            "Brampton's business accelerator and innovation hub, home of the BNext AI program.",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "8 Nelson St W, 6th Floor",
+            addressLocality: "Brampton",
+            addressRegion: "ON",
+            postalCode: "L6X 1B7",
+            addressCountry: "CA",
+          },
+          telephone: "+1-647-632-1072",
+          email: "bnextai@thebhive.ca",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "The BHive",
+          url: "https://bhive-bnextai-preview.lovable.app/",
+          potentialAction: {
+            "@type": "SearchAction",
+            target: "https://bhive-bnextai-preview.lovable.app/search?q={search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
+        }),
+      },
     ],
   }),
   component: HomePage,

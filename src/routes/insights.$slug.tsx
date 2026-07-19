@@ -8,12 +8,32 @@ export const Route = createFileRoute("/insights/$slug")({
     if (!a) throw notFound();
     return { a };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     if (!loaderData) return { meta: [{ title: "Article not found" }, { name: "robots", content: "noindex" }] };
+    const url = `https://bhive-bnextai-preview.lovable.app/insights/${params.slug}`;
     return {
       meta: [
         { title: `${loaderData.a.title} · Insights` },
         { name: "description", content: loaderData.a.shortVersion },
+        { property: "og:title", content: loaderData.a.title },
+        { property: "og:description", content: loaderData.a.shortVersion },
+        { property: "og:type", content: "article" },
+        { property: "og:url", content: url },
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: loaderData.a.title,
+            description: loaderData.a.shortVersion,
+            author: { "@type": "Organization", name: loaderData.a.author },
+            datePublished: loaderData.a.published,
+            mainEntityOfPage: url,
+          }),
+        },
       ],
     };
   },

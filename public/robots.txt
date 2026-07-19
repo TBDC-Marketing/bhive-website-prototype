@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bhive-bnextai-preview.lovable.app/sitemap.xml

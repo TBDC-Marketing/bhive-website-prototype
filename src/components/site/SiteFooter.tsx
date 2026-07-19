@@ -55,9 +55,15 @@ export function SiteFooter() {
               onSubmit={(e) => e.preventDefault()}
               className="mt-4 flex flex-col gap-2"
             >
+              <label htmlFor="footer-signal-email" className="sr-only">
+                Email address
+              </label>
               <input
+                id="footer-signal-email"
+                name="email"
                 type="email"
                 required
+                aria-label="Email address"
                 placeholder="you@company.ca"
                 className="rounded-sm border border-paper/20 bg-transparent px-3 py-2 text-sm placeholder:text-paper/40 focus:border-honey focus:outline-none"
               />
