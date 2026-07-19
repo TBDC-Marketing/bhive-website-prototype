@@ -1,0 +1,41 @@
+# The BHive
+
+> Brampton's business accelerator and innovation hub, home of BNext AI — a program helping established Ontario businesses adopt AI with evidence.
+
+The BHive is a Brampton-based accelerator built with the City of Brampton in 2022. Its signature program, BNext AI, guides business owners and operators from AI curiosity to a working, governed AI workflow — vendor-neutral, evidence-first, and workflow-first.
+
+## Program
+
+- [BNext AI](/bnext-ai): The signature program — three starting points, one decision system.
+- [How it works](/how-it-works): The six-stage method from problem to production candidate.
+- [Start here](/start): Find the right starting point via a short readiness check.
+- [New to AI](/start/new-to-ai): First-win route for owners exploring AI.
+- [Experimenting](/start/experimenting): Turn scattered pilots into a validated use case.
+- [Ready to implement](/start/ready-to-implement): Audit, test, and choose a rollout route.
+- [Eligibility & FAQ](/eligibility): Program eligibility and common questions.
+- [Apply](/apply): Program application (business brief).
+
+## Library
+
+- [AI in action](/ai-in-action): Representative use cases by function and sector.
+- [Demos](/demos): Narrated workflow demos.
+- [Field guides](/field-guides): Worksheets, checklists, and playbooks.
+- [Insights](/insights): Decision notes and signals from the field.
+- [Stories](/stories): Participant workflow stories.
+- [BNext Signal](/signal): Weekly one-decision newsletter.
+- [Events](/events): Cohort events, clinics, and peer exchanges.
+
+## The BHive
+
+- [About](/about): Institutional story and mission.
+- [Team & advisors](/team): Who supports which decisions.
+- [Partners](/partners): Referral partners and how referrals work.
+- [Vendor network](/vendor-network): Vendor matching rules.
+- [Contact](/contact): Program fit, partnership, media, accessibility.
+
+## Optional
+
+- [Privacy](/privacy)
+- [Terms](/terms)
+- [Accessibility](/accessibility)
+- [Cookies](/cookies)
