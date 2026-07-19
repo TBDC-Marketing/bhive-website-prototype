@@ -10,16 +10,31 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BnextAiRouteImport } from './routes/bnext-ai'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as StoriesIndexRouteImport } from './routes/stories.index'
 import { Route as StartIndexRouteImport } from './routes/start.index'
+import { Route as InsightsIndexRouteImport } from './routes/insights.index'
+import { Route as FieldGuidesIndexRouteImport } from './routes/field-guides.index'
+import { Route as AiInActionIndexRouteImport } from './routes/ai-in-action.index'
+import { Route as StoriesSlugRouteImport } from './routes/stories.$slug'
 import { Route as StartReadyToImplementRouteImport } from './routes/start.ready-to-implement'
 import { Route as StartNewToAiRouteImport } from './routes/start.new-to-ai'
 import { Route as StartExperimentingRouteImport } from './routes/start.experimenting'
+import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
+import { Route as FieldGuidesSlugRouteImport } from './routes/field-guides.$slug'
+import { Route as AiInActionSlugRouteImport } from './routes/ai-in-action.$slug'
 
 const HowItWorksRoute = HowItWorksRouteImport.update({
   id: '/how-it-works',
   path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BnextAiRoute = BnextAiRouteImport.update({
@@ -27,14 +42,44 @@ const BnextAiRoute = BnextAiRouteImport.update({
   path: '/bnext-ai',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StoriesIndexRoute = StoriesIndexRouteImport.update({
+  id: '/stories/',
+  path: '/stories/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StartIndexRoute = StartIndexRouteImport.update({
   id: '/start/',
   path: '/start/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsIndexRoute = InsightsIndexRouteImport.update({
+  id: '/insights/',
+  path: '/insights/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FieldGuidesIndexRoute = FieldGuidesIndexRouteImport.update({
+  id: '/field-guides/',
+  path: '/field-guides/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiInActionIndexRoute = AiInActionIndexRouteImport.update({
+  id: '/ai-in-action/',
+  path: '/ai-in-action/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StoriesSlugRoute = StoriesSlugRouteImport.update({
+  id: '/stories/$slug',
+  path: '/stories/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StartReadyToImplementRoute = StartReadyToImplementRouteImport.update({
@@ -52,73 +97,158 @@ const StartExperimentingRoute = StartExperimentingRouteImport.update({
   path: '/start/experimenting',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InsightsSlugRoute = InsightsSlugRouteImport.update({
+  id: '/insights/$slug',
+  path: '/insights/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FieldGuidesSlugRoute = FieldGuidesSlugRouteImport.update({
+  id: '/field-guides/$slug',
+  path: '/field-guides/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiInActionSlugRoute = AiInActionSlugRouteImport.update({
+  id: '/ai-in-action/$slug',
+  path: '/ai-in-action/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/bnext-ai': typeof BnextAiRoute
+  '/contact': typeof ContactRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/ai-in-action/$slug': typeof AiInActionSlugRoute
+  '/field-guides/$slug': typeof FieldGuidesSlugRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/start/experimenting': typeof StartExperimentingRoute
   '/start/new-to-ai': typeof StartNewToAiRoute
   '/start/ready-to-implement': typeof StartReadyToImplementRoute
+  '/stories/$slug': typeof StoriesSlugRoute
+  '/ai-in-action/': typeof AiInActionIndexRoute
+  '/field-guides/': typeof FieldGuidesIndexRoute
+  '/insights/': typeof InsightsIndexRoute
   '/start/': typeof StartIndexRoute
+  '/stories/': typeof StoriesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/bnext-ai': typeof BnextAiRoute
+  '/contact': typeof ContactRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/ai-in-action/$slug': typeof AiInActionSlugRoute
+  '/field-guides/$slug': typeof FieldGuidesSlugRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/start/experimenting': typeof StartExperimentingRoute
   '/start/new-to-ai': typeof StartNewToAiRoute
   '/start/ready-to-implement': typeof StartReadyToImplementRoute
+  '/stories/$slug': typeof StoriesSlugRoute
+  '/ai-in-action': typeof AiInActionIndexRoute
+  '/field-guides': typeof FieldGuidesIndexRoute
+  '/insights': typeof InsightsIndexRoute
   '/start': typeof StartIndexRoute
+  '/stories': typeof StoriesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/bnext-ai': typeof BnextAiRoute
+  '/contact': typeof ContactRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/ai-in-action/$slug': typeof AiInActionSlugRoute
+  '/field-guides/$slug': typeof FieldGuidesSlugRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/start/experimenting': typeof StartExperimentingRoute
   '/start/new-to-ai': typeof StartNewToAiRoute
   '/start/ready-to-implement': typeof StartReadyToImplementRoute
+  '/stories/$slug': typeof StoriesSlugRoute
+  '/ai-in-action/': typeof AiInActionIndexRoute
+  '/field-guides/': typeof FieldGuidesIndexRoute
+  '/insights/': typeof InsightsIndexRoute
   '/start/': typeof StartIndexRoute
+  '/stories/': typeof StoriesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/bnext-ai'
+    | '/contact'
     | '/how-it-works'
+    | '/ai-in-action/$slug'
+    | '/field-guides/$slug'
+    | '/insights/$slug'
     | '/start/experimenting'
     | '/start/new-to-ai'
     | '/start/ready-to-implement'
+    | '/stories/$slug'
+    | '/ai-in-action/'
+    | '/field-guides/'
+    | '/insights/'
     | '/start/'
+    | '/stories/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/bnext-ai'
+    | '/contact'
     | '/how-it-works'
+    | '/ai-in-action/$slug'
+    | '/field-guides/$slug'
+    | '/insights/$slug'
     | '/start/experimenting'
     | '/start/new-to-ai'
     | '/start/ready-to-implement'
+    | '/stories/$slug'
+    | '/ai-in-action'
+    | '/field-guides'
+    | '/insights'
     | '/start'
+    | '/stories'
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/bnext-ai'
+    | '/contact'
     | '/how-it-works'
+    | '/ai-in-action/$slug'
+    | '/field-guides/$slug'
+    | '/insights/$slug'
     | '/start/experimenting'
     | '/start/new-to-ai'
     | '/start/ready-to-implement'
+    | '/stories/$slug'
+    | '/ai-in-action/'
+    | '/field-guides/'
+    | '/insights/'
     | '/start/'
+    | '/stories/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   BnextAiRoute: typeof BnextAiRoute
+  ContactRoute: typeof ContactRoute
   HowItWorksRoute: typeof HowItWorksRoute
+  AiInActionSlugRoute: typeof AiInActionSlugRoute
+  FieldGuidesSlugRoute: typeof FieldGuidesSlugRoute
+  InsightsSlugRoute: typeof InsightsSlugRoute
   StartExperimentingRoute: typeof StartExperimentingRoute
   StartNewToAiRoute: typeof StartNewToAiRoute
   StartReadyToImplementRoute: typeof StartReadyToImplementRoute
+  StoriesSlugRoute: typeof StoriesSlugRoute
+  AiInActionIndexRoute: typeof AiInActionIndexRoute
+  FieldGuidesIndexRoute: typeof FieldGuidesIndexRoute
+  InsightsIndexRoute: typeof InsightsIndexRoute
   StartIndexRoute: typeof StartIndexRoute
+  StoriesIndexRoute: typeof StoriesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -130,11 +260,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HowItWorksRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/bnext-ai': {
       id: '/bnext-ai'
       path: '/bnext-ai'
       fullPath: '/bnext-ai'
       preLoaderRoute: typeof BnextAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -144,11 +288,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/stories/': {
+      id: '/stories/'
+      path: '/stories'
+      fullPath: '/stories/'
+      preLoaderRoute: typeof StoriesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/start/': {
       id: '/start/'
       path: '/start'
       fullPath: '/start/'
       preLoaderRoute: typeof StartIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/': {
+      id: '/insights/'
+      path: '/insights'
+      fullPath: '/insights/'
+      preLoaderRoute: typeof InsightsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/field-guides/': {
+      id: '/field-guides/'
+      path: '/field-guides'
+      fullPath: '/field-guides/'
+      preLoaderRoute: typeof FieldGuidesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-in-action/': {
+      id: '/ai-in-action/'
+      path: '/ai-in-action'
+      fullPath: '/ai-in-action/'
+      preLoaderRoute: typeof AiInActionIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stories/$slug': {
+      id: '/stories/$slug'
+      path: '/stories/$slug'
+      fullPath: '/stories/$slug'
+      preLoaderRoute: typeof StoriesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/start/ready-to-implement': {
@@ -172,17 +351,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StartExperimentingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/insights/$slug': {
+      id: '/insights/$slug'
+      path: '/insights/$slug'
+      fullPath: '/insights/$slug'
+      preLoaderRoute: typeof InsightsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/field-guides/$slug': {
+      id: '/field-guides/$slug'
+      path: '/field-guides/$slug'
+      fullPath: '/field-guides/$slug'
+      preLoaderRoute: typeof FieldGuidesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-in-action/$slug': {
+      id: '/ai-in-action/$slug'
+      path: '/ai-in-action/$slug'
+      fullPath: '/ai-in-action/$slug'
+      preLoaderRoute: typeof AiInActionSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   BnextAiRoute: BnextAiRoute,
+  ContactRoute: ContactRoute,
   HowItWorksRoute: HowItWorksRoute,
+  AiInActionSlugRoute: AiInActionSlugRoute,
+  FieldGuidesSlugRoute: FieldGuidesSlugRoute,
+  InsightsSlugRoute: InsightsSlugRoute,
   StartExperimentingRoute: StartExperimentingRoute,
   StartNewToAiRoute: StartNewToAiRoute,
   StartReadyToImplementRoute: StartReadyToImplementRoute,
+  StoriesSlugRoute: StoriesSlugRoute,
+  AiInActionIndexRoute: AiInActionIndexRoute,
+  FieldGuidesIndexRoute: FieldGuidesIndexRoute,
+  InsightsIndexRoute: InsightsIndexRoute,
   StartIndexRoute: StartIndexRoute,
+  StoriesIndexRoute: StoriesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
