@@ -63,12 +63,14 @@
 :root {
   --radius: 0.5rem;
 
-  /* Core palette */
-  --paper: oklch(0.985 0.008 85);          /* warm off-white */
-  --ink: oklch(0.16 0.02 260);              /* deep institutional navy-ink */
-  --honey: oklch(0.82 0.17 82);             /* signal amber */
-  --honey-deep: oklch(0.68 0.19 62);        /* burnt honey */
-  --honey-soft: oklch(0.95 0.05 88);        /* soft honey wash */
+  /* BNEXT AI palette */
+  --paper: oklch(1 0 0);                    /* pure paper white */
+  --ink: oklch(0.14 0 0);                   /* BNEXT near-black */
+  --honey: oklch(0.88 0.19 95);             /* BNEXT signal yellow */
+  --honey-deep: oklch(0.78 0.19 88);        /* deeper yellow for hover */
+  --honey-soft: oklch(0.97 0.05 96);        /* soft yellow wash */
+  --sky: oklch(0.82 0.11 235);              /* sky accent */
+  --sky-soft: oklch(0.96 0.03 235);         /* soft sky wash */
 
   --background: var(--paper);
   --foreground: var(--ink);
