@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { CTAButton, Eyebrow, PageHero, Reveal, Section } from "../components/site/primitives";
 import { stories } from "../content/site";
 
