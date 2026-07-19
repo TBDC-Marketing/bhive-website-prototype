@@ -79,11 +79,11 @@ function SectorPage() {
         <div className="grid gap-14 md:grid-cols-2">
           <Reveal>
             <Eyebrow>What operators are dealing with</Eyebrow>
-            <ul className="mt-6 space-y-3 text-lg text-ink">{s.pressures.map((p) => <li key={p} className="flex gap-3"><span className="text-honey-deep">·</span>{p}</li>)}</ul>
+            <ul className="mt-6 space-y-3 text-lg text-ink">{s.pressures.map((p: string) => <li key={p} className="flex gap-3"><span className="text-honey-deep">·</span>{p}</li>)}</ul>
           </Reveal>
           <Reveal delay={0.1}>
             <Eyebrow>Where AI may help</Eyebrow>
-            <ul className="mt-6 space-y-3 text-lg text-ink">{s.workflows.map((w) => <li key={w} className="flex gap-3"><span className="text-honey-deep">·</span>{w}</li>)}</ul>
+            <ul className="mt-6 space-y-3 text-lg text-ink">{s.workflows.map((w: string) => <li key={w} className="flex gap-3"><span className="text-honey-deep">·</span>{w}</li>)}</ul>
           </Reveal>
         </div>
       </Section>
@@ -91,7 +91,7 @@ function SectorPage() {
       <Section bg="ink">
         <p className="eyebrow text-honey">Where judgement must stay human</p>
         <div className="mt-6 flex flex-wrap gap-3">
-          {s.humanJudgement.map((h) => <span key={h} className="rounded-sm border border-honey/40 px-4 py-2 text-paper">{h}</span>)}
+          {s.humanJudgement.map((h: string) => <span key={h} className="rounded-sm border border-honey/40 px-4 py-2 text-paper">{h}</span>)}
         </div>
       </Section>
 
