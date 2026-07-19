@@ -35,7 +35,7 @@ export const Route = createFileRoute("/resources")({
 });
 
 function ResourcesHub() {
-  const events = upcomingEvents().slice(0, 3);
+  const upcoming = events.filter((e) => isUpcoming(e)).slice(0, 3);
   return (
     <>
       <PageHero
