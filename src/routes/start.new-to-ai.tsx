@@ -37,7 +37,7 @@ function NewToAI() {
         title={<>You do not need an AI strategy yet. <span className="signal-underline">You need one useful win.</span></>}
         lede="Choose a low-risk workflow. Learn the tool on real work. Verify the result. Leave with a practical plan for what comes next."
         ctas={<>
-          <CTAButton to="/start/new-to-ai">Apply for the first-win route</CTAButton>
+          <CTAButton to="/apply">Apply for the first-win route</CTAButton>
           <CTAButton to="/ai-in-action" variant="ghost">See example first wins</CTAButton>
         </>}
       />
