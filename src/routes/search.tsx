@@ -28,7 +28,7 @@ function SearchPage() {
       ...useCases.map((u) => ({ type: "Use case", title: u.title, body: u.outcome, to: "/ai-in-action/$slug", params: { slug: u.slug } })),
       ...fieldGuides.map((g) => ({ type: "Field guide", title: g.title, body: g.decision, to: "/field-guides/$slug", params: { slug: g.slug } })),
       ...insights.map((i) => ({ type: "Insight", title: i.title, body: i.shortVersion, to: "/insights/$slug", params: { slug: i.slug } })),
-      ...stories.map((s) => ({ type: "Story", title: s.headline, body: s.problem, to: "/stories/$slug", params: { slug: s.slug } })),
+      ...stories.map((s) => ({ type: "Story", title: s.headline, body: s.problem, to: "/stories", params: {} })),
     ];
   }, []);
 
