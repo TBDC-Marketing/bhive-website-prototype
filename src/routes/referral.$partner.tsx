@@ -8,7 +8,7 @@ const partners: Record<string, { name: string; why: string }> = {
 
 export const Route = createFileRoute("/referral/$partner")({
   loader: ({ params }) => partners[params.partner] ?? { name: params.partner, why: "This organization is referring eligible businesses to BNext AI." },
-  head: ({ loaderData }) => ({
+  head: ({ loaderData }) => (loaderData ? ({
     meta: [
       { title: `${loaderData.name} × BNext AI` },
       { name: "description", content: loaderData.why },
