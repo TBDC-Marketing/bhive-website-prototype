@@ -12,11 +12,11 @@ export const Route = createFileRoute("/")({
         content:
           "From AI curiosity to AI working in your business. The BHive's BNext AI program helps established Peel businesses adopt AI with evidence.",
       },
-      { property: "og:title", content: "The BHive — home of BNext AI" },
+      { property: "og:title", content: "The BHive — Brampton's business accelerator, home of BNext AI" },
       {
         property: "og:description",
         content:
-          "One program. Three starting points. A clear way forward on AI for Ontario businesses.",
+          "From AI curiosity to AI working in your business. The BHive's BNext AI program helps established Peel businesses adopt AI with evidence.",
       },
     ],
   }),

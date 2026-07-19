@@ -79,20 +79,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "The BHive helps Peel businesses turn AI curiosity into practical progress. BNext AI is our signature adoption-to-value program.",
+          "From AI curiosity to AI working in your business. The BHive's BNext AI program helps established Peel businesses adopt AI with evidence.",
       },
-      { property: "og:title", content: "The BHive · BNext AI" },
+      { property: "og:title", content: "The BHive — Brampton's business accelerator, home of BNext AI" },
       {
         property: "og:description",
         content:
-          "From AI curiosity to AI working in your business. A structured route for established businesses.",
+          "From AI curiosity to AI working in your business. The BHive's BNext AI program helps established Peel businesses adopt AI with evidence.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "The BHive — Brampton's business accelerator, home of BNext AI" },
+      { name: "twitter:description", content: "From AI curiosity to AI working in your business. The BHive's BNext AI program helps established Peel businesses adopt AI with evidence." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1d2c45c4-d6e6-491f-9372-603f2e5c60d9/id-preview-b90ddc70--bcb1c2a0-32a7-4fa1-8e03-772914fd4f58.lovable.app-1784483309161.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1d2c45c4-d6e6-491f-9372-603f2e5c60d9/id-preview-b90ddc70--bcb1c2a0-32a7-4fa1-8e03-772914fd4f58.lovable.app-1784483309161.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
