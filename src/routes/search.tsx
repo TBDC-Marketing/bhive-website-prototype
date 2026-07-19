@@ -32,14 +32,25 @@ function SearchPage() {
     ];
   }, []);
 
-  const filtered = items.filter((i) => {
-    if (filter !== "All" && i.type !== filter) return false;
-    if (!q) return true;
-    const t = (i.title + " " + i.body).toLowerCase();
-    return t.includes(q.toLowerCase());
-  });
+  const filtered = q
+    ? items.filter((i) => {
+        if (filter !== "All" && i.type !== filter) return false;
+        const t = (i.title + " " + i.body).toLowerCase();
+        return t.includes(q.toLowerCase());
+      })
+    : [];
 
   const filters = ["All", "Use case", "Field guide", "Insight", "Story"];
+
+  const suggested = useMemo(
+    () => [
+      { type: "Field guide", title: "How to choose a starting workflow", to: "/field-guides" as const },
+      { type: "Use case", title: "Customer-call summary to accountable follow-up", to: "/ai-in-action/$slug" as const, params: { slug: "call-summary-followup" } },
+      { type: "Insight", title: "Browse recent field notes", to: "/insights" as const },
+      { type: "Route", title: "Not sure where to start? Take the 5-question check", to: "/start" as const },
+    ],
+    [],
+  );
 
   return (
     <>
@@ -60,33 +71,57 @@ function SearchPage() {
           ))}
         </div>
 
-        <ul className="mt-10 divide-y divide-border border-y border-border">
-          {filtered.map((i) => (
-            <li key={i.type + i.title}>
-              <Link
-                to={i.to}
-                params={i.params as never}
-                className="group grid gap-2 py-5 md:grid-cols-[120px_1fr] md:items-baseline md:gap-6"
-              >
-                <span className="text-xs uppercase tracking-widest text-honey-deep">{i.type}</span>
-                <span>
-                  <span className="block font-display text-xl leading-snug group-hover:text-honey-deep">{i.title}</span>
-                  <span className="mt-1 block text-sm text-muted-foreground">{i.body}</span>
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-        {filtered.length === 0 && (
-          <div className="mt-16 max-w-xl">
-            <p className="font-display text-2xl">We could not find that phrase.</p>
-            <p className="mt-3 text-sm text-muted-foreground">Try the business task instead of the tool name—or contact BNext.</p>
-            <div className="mt-4 flex gap-4 text-sm text-honey-deep">
-              <Link to="/ai-in-action">Browse AI in Action</Link>
-              <Link to="/eligibility">Check FAQ</Link>
-              <Link to="/contact">Contact BNext</Link>
-            </div>
+        {!q && (
+          <div className="mt-10">
+            <p className="eyebrow text-honey-deep">Suggested</p>
+            <ul className="mt-4 divide-y divide-border border-y border-border">
+              {suggested.map((s) => (
+                <li key={s.title}>
+                  <Link
+                    to={s.to}
+                    params={("params" in s ? s.params : undefined) as never}
+                    className="group grid gap-2 py-5 md:grid-cols-[120px_1fr] md:items-baseline md:gap-6"
+                  >
+                    <span className="text-xs uppercase tracking-widest text-honey-deep">{s.type}</span>
+                    <span className="font-display text-xl leading-snug group-hover:text-honey-deep">{s.title}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
+        )}
+
+        {q && (
+          <>
+            <ul className="mt-10 divide-y divide-border border-y border-border">
+              {filtered.map((i) => (
+                <li key={i.type + i.title}>
+                  <Link
+                    to={i.to}
+                    params={i.params as never}
+                    className="group grid gap-2 py-5 md:grid-cols-[120px_1fr] md:items-baseline md:gap-6"
+                  >
+                    <span className="text-xs uppercase tracking-widest text-honey-deep">{i.type}</span>
+                    <span>
+                      <span className="block font-display text-xl leading-snug group-hover:text-honey-deep">{i.title}</span>
+                      <span className="mt-1 block text-sm text-muted-foreground">{i.body}</span>
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            {filtered.length === 0 && (
+              <div className="mt-16 max-w-xl">
+                <p className="font-display text-2xl">We could not find that phrase.</p>
+                <p className="mt-3 text-sm text-muted-foreground">Try the business task instead of the tool name—or contact BNext.</p>
+                <div className="mt-4 flex gap-4 text-sm text-honey-deep">
+                  <Link to="/ai-in-action">Browse AI in Action</Link>
+                  <Link to="/eligibility">Check FAQ</Link>
+                  <Link to="/contact">Contact BNext</Link>
+                </div>
+              </div>
+            )}
+          </>
         )}
       </Section>
     </>
