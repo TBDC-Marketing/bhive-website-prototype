@@ -48,16 +48,18 @@ export function SiteHeader() {
             onMouseEnter={() => setResOpen(true)}
             onMouseLeave={() => setResOpen(false)}
           >
-            <button
-              type="button"
+            <Link
+              to="/resources"
+              onMouseEnter={() => setResOpen(true)}
+              onFocus={() => setResOpen(true)}
               aria-haspopup="menu"
               aria-expanded={resOpen}
-              onClick={() => setResOpen((v) => !v)}
               className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-ink"
+              activeProps={{ className: "text-ink font-medium" }}
             >
               Resources
               <ChevronDown className="h-3.5 w-3.5" />
-            </button>
+            </Link>
             {resOpen && (
               <div
                 role="menu"
