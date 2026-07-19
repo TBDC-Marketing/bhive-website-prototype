@@ -4,14 +4,16 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* The BHive design system
- * Palette: institutional navy (ink), warm paper white, honeycomb amber signal
- * Typography: Fraunces (display serif) + Inter Tight (grotesk body) via <link> in __root
+/* BNEXT AI / The BHive v2 design system
+ * Palette: BNEXT black (ink), pure paper white, BNEXT yellow (honey signal), sky accent
+ * Typography: Inter Tight throughout, tight tracking on display
  */
 
 @theme inline {
-  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-display: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --color-sky: var(--sky);
+  --color-sky-soft: var(--sky-soft);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -61,12 +63,14 @@
 :root {
   --radius: 0.5rem;
 
-  /* Core palette */
-  --paper: oklch(0.985 0.008 85);          /* warm off-white */
-  --ink: oklch(0.16 0.02 260);              /* deep institutional navy-ink */
-  --honey: oklch(0.82 0.17 82);             /* signal amber */
-  --honey-deep: oklch(0.68 0.19 62);        /* burnt honey */
-  --honey-soft: oklch(0.95 0.05 88);        /* soft honey wash */
+  /* BNEXT AI palette */
+  --paper: oklch(1 0 0);                    /* pure paper white */
+  --ink: oklch(0.14 0 0);                   /* BNEXT near-black */
+  --honey: oklch(0.88 0.19 95);             /* BNEXT signal yellow */
+  --honey-deep: oklch(0.78 0.19 88);        /* deeper yellow for hover */
+  --honey-soft: oklch(0.97 0.05 96);        /* soft yellow wash */
+  --sky: oklch(0.82 0.11 235);              /* sky accent */
+  --sky-soft: oklch(0.96 0.03 235);         /* soft sky wash */
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -80,15 +84,15 @@
   --primary-foreground: var(--paper);
   --secondary: oklch(0.94 0.01 85);
   --secondary-foreground: var(--ink);
-  --muted: oklch(0.945 0.012 85);
-  --muted-foreground: oklch(0.42 0.02 260);
+  --muted: oklch(0.965 0 0);
+  --muted-foreground: oklch(0.42 0 0);
   --accent: var(--honey);
   --accent-foreground: var(--ink);
   --destructive: oklch(0.55 0.22 27);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.9 0.015 85);
-  --input: oklch(0.9 0.015 85);
-  --ring: var(--honey-deep);
+  --border: oklch(0.9 0 0);
+  --input: oklch(0.9 0 0);
+  --ring: var(--ink);
 
   --chart-1: var(--honey);
   --chart-2: var(--honey-deep);
@@ -145,8 +149,8 @@
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-weight: 500;
-    letter-spacing: -0.02em;
+    font-weight: 700;
+    letter-spacing: -0.03em;
   }
   .eyebrow {
     font-family: var(--font-sans);
