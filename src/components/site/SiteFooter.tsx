@@ -77,9 +77,10 @@ export function SiteFooter() {
             Ontario (FedDev Ontario). Built in Brampton.
           </p>
           <p className="flex gap-4">
-            <span>Privacy</span>
-            <span>Terms</span>
-            <span>Accessibility</span>
+            <Link to="/privacy" className="hover:text-honey">Privacy</Link>
+            <Link to="/terms" className="hover:text-honey">Terms</Link>
+            <Link to="/accessibility" className="hover:text-honey">Accessibility</Link>
+            <Link to="/cookies" className="hover:text-honey">Cookies</Link>
           </p>
         </div>
       </div>
