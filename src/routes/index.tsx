@@ -1,5 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CTAButton, Eyebrow, PageHero, Reveal, Section, StatRow } from "../components/site/primitives";
+import {
+  CTAButton,
+  DarkBrandBand,
+  Eyebrow,
+  MetricGrid,
+  Reveal,
+  Section,
+  SplitHero,
+} from "../components/site/primitives";
 import { useCases } from "../content/site";
 import { ArrowRight } from "lucide-react";
 
@@ -101,176 +109,64 @@ const stages = ["Orient", "Define", "Route", "Prepare", "Prove", "Run"];
 function HomePage() {
   return (
     <>
-      {/* Announcement bar */}
-      <div className="bg-ink text-paper">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-6 py-2.5 text-xs">
-          <p>
-            <span className="text-honey">BNext AI</span> is now accepting expressions of
-            interest from eligible Ontario businesses.
-          </p>
-          <Link to="/start" className="underline underline-offset-4 hover:text-honey">
-            Find your starting point →
-          </Link>
-        </div>
-      </div>
-
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-paper">
-        <div className="mx-auto max-w-7xl px-6 pt-20 pb-24 md:pt-28 md:pb-32">
-          <Reveal>
-            <Eyebrow>
-              The BHive · Brampton's business accelerator and innovation hub
-            </Eyebrow>
-          </Reveal>
-          <Reveal delay={0.05}>
-            <h1 className="mt-8 max-w-5xl font-display text-6xl leading-[0.98] md:text-[8rem]">
-              A hive is where <span className="signal-underline">work</span> gets done.
-            </h1>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="mt-10 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              The BHive helps business owners turn consequential ideas into practical
-              progress. Today, that work leads with{" "}
-              <span className="text-ink font-medium">BNext AI</span>—our signature program
-              guiding established businesses from AI curiosity to adoption and measurable
-              value.
+      <SplitHero
+        eyebrow="The BHive · Home of BNext AI"
+        title={
+          <>
+            From AI curiosity to <span className="signal-underline">AI working</span> in your business.
+          </>
+        }
+        lede={
+          <>
+            BNext AI is The BHive's signature program for established Peel businesses.
+            Choose one valuable workflow, test the case and the risk, and leave with
+            evidence, ownership, and a practical implementation plan.
+          </>
+        }
+        ctas={
+          <>
+            <CTAButton to="/start">Find your starting point</CTAButton>
+            <CTAButton to="/bnext-ai" variant="ghost">
+              Explore BNext AI
+            </CTAButton>
+          </>
+        }
+        aside={
+          <div className="rounded-sm border border-ink bg-honey p-8">
+            <p className="eyebrow text-ink">Free · Government-funded · Vendor-neutral</p>
+            <p className="mt-6 font-display text-3xl leading-tight text-ink">
+              Delivered in person in Brampton for established Ontario businesses.
             </p>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <CTAButton to="/start">Find your starting point</CTAButton>
-              <CTAButton to="/bnext-ai" variant="ghost">
-                Explore BNext AI
-              </CTAButton>
-            </div>
-          </Reveal>
-          <Reveal delay={0.25}>
-            <div className="mt-16 border-t border-border/60 pt-6">
-              <StatRow
-                items={[
-                  "Built in Brampton",
-                  "Practical guidance",
-                  "Trusted networks",
-                  "Government-supported programming",
-                ]}
-              />
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Signature program — ink field */}
-      <section className="bg-ink text-paper">
-        <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
-          <Reveal>
-            <p className="eyebrow text-honey">BNext AI · Signature program</p>
-          </Reveal>
-          <div className="mt-8 grid gap-12 md:grid-cols-12 md:gap-16">
-            <div className="md:col-span-7">
-              <Reveal delay={0.05}>
-                <h2 className="font-display text-5xl leading-[1.05] md:text-6xl">
-                  Put AI to work.{" "}
-                  <span className="text-honey">Start with the right move.</span>
-                </h2>
-              </Reveal>
-              <Reveal delay={0.1}>
-                <p className="mt-8 max-w-xl text-lg leading-relaxed text-paper/75">
-                  AI is easy to try and hard to evaluate. BNext AI gives owners and
-                  operating teams a clear route: choose one valuable workflow, test the
-                  case and the risk, and leave with evidence, ownership, and a practical
-                  implementation plan.
-                </p>
-              </Reveal>
-              <Reveal delay={0.15}>
-                <div className="mt-8 flex flex-wrap gap-3 text-xs uppercase tracking-widest text-paper/60">
-                  <span>Free to participating businesses</span>
-                  <span>·</span>
-                  <span>Government-funded</span>
-                  <span>·</span>
-                  <span>Vendor-neutral</span>
-                  <span>·</span>
-                  <span>In person in Brampton</span>
-                </div>
-              </Reveal>
-              <Reveal delay={0.2}>
-                <div className="mt-10">
-                  <Link
-                    to="/how-it-works"
-                    className="inline-flex items-center gap-2 rounded-full bg-honey px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-paper"
-                  >
-                    See how BNext AI works
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </Reveal>
-            </div>
-            <Reveal delay={0.2}>
-              <aside className="md:col-span-5">
-                <div className="rounded-sm border border-honey/30 bg-paper/[0.03] p-8">
-                  <p className="eyebrow text-honey">The route</p>
-                  <ol className="mt-6 space-y-4">
-                    {stages.map((s, i) => (
-                      <li key={s} className="flex items-center gap-4">
-                        <span className="grid h-8 w-8 place-items-center rounded-full border border-honey/40 text-xs text-honey">
-                          {i + 1}
-                        </span>
-                        <span className="font-display text-2xl">{s}</span>
-                      </li>
-                    ))}
-                  </ol>
-                  <p className="mt-6 border-t border-paper/10 pt-4 text-xs text-paper/60">
-                    Orient → Define → Route → Prepare → Prove → Run
-                  </p>
-                </div>
-              </aside>
-            </Reveal>
+            <p className="mt-6 border-t border-ink/20 pt-4 text-xs uppercase tracking-widest text-ink/70">
+              Supported by FedDev Ontario
+            </p>
           </div>
-        </div>
-      </section>
+        }
+      />
 
-      {/* The problem */}
+      {/* Three ICP routes — front and center */}
       <Section bg="paper">
         <Reveal>
-          <h2 className="max-w-4xl font-display text-5xl leading-[1.05] md:text-6xl">
-            AI is not the risk. <span className="signal-underline">Guessing is.</span>
+          <Eyebrow>Three routes · Start where you are</Eyebrow>
+          <h2 className="mt-4 max-w-4xl font-display text-4xl leading-[1.05] md:text-6xl">
+            Pick the door that matches how far along you are.
           </h2>
         </Reveal>
-        <Reveal delay={0.05}>
-          <p className="mt-8 max-w-2xl text-lg text-muted-foreground">
-            Buying a tool before defining the workflow. Running experiments without a
-            success measure. Choosing a vendor before deciding what good looks like. Those
-            are expensive ways to learn.
-          </p>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-            The BHive built BNext AI to give the decision a structure.
-          </p>
-        </Reveal>
-      </Section>
-
-      {/* Sort yourself — three doors */}
-      <Section bg="muted">
-        <Reveal>
-          <Eyebrow>Sort yourself</Eyebrow>
-          <h2 className="mt-4 font-display text-5xl md:text-6xl">Start where you are.</h2>
-        </Reveal>
-        <div className="mt-16 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
           {routes.map((r, i) => (
             <Reveal key={r.tag} delay={i * 0.05}>
               <Link
                 to={r.to}
-                className="group flex h-full flex-col justify-between rounded-sm border border-ink/10 bg-paper p-8 transition-all hover:border-ink hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.15)]"
+                className="group flex h-full flex-col justify-between rounded-sm border border-ink/15 bg-paper p-8 transition-all hover:border-ink hover:bg-honey-soft"
               >
                 <div>
                   <p className="eyebrow text-honey-deep">{r.tag}</p>
                   <p className="mt-4 text-lg text-ink">{r.body}</p>
                   <p className="mt-6 border-t border-border pt-4 text-sm text-muted-foreground">
-                    <span className="font-medium text-ink">Route outcome:</span>{" "}
-                    {r.outcome}
+                    <span className="font-medium text-ink">Route outcome:</span> {r.outcome}
                   </p>
                 </div>
-                <div className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-ink group-hover:text-honey-deep">
+                <div className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-ink">
                   {r.cta}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </div>
@@ -278,33 +174,79 @@ function HomePage() {
             </Reveal>
           ))}
         </div>
+        <div className="mt-10">
+          <Link
+            to="/start"
+            className="inline-flex items-center gap-2 text-sm font-medium text-ink underline underline-offset-4 hover:text-honey-deep"
+          >
+            Not sure? Take the 5-question check
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
       </Section>
 
-      {/* Artifacts */}
-      <Section bg="paper">
+      {/* Dark brand band — the method */}
+      <DarkBrandBand
+        eyebrow="The method"
+        title={
+          <>
+            Put AI to work. <span className="text-honey">Start with the right move.</span>
+          </>
+        }
+      >
         <div className="grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-5">
-            <Reveal>
-              <Eyebrow>Artifacts</Eyebrow>
-              <h2 className="mt-4 font-display text-5xl leading-[1.05] md:text-6xl">
-                Leave with work your business can use.
-              </h2>
-            </Reveal>
-          </div>
           <div className="md:col-span-7">
-            <ul className="divide-y divide-border">
-              {artifacts.map((a, i) => (
-                <Reveal key={a} delay={i * 0.03}>
-                  <li className="flex items-center gap-6 py-5">
-                    <span className="font-display text-3xl text-honey-deep">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="text-lg">{a}</span>
-                  </li>
-                </Reveal>
-              ))}
-            </ul>
+            <p className="max-w-xl text-lg leading-relaxed text-paper/75">
+              AI is easy to try and hard to evaluate. BNext AI gives owners and operating
+              teams a clear six-stage route: from orienting on the opportunity to running
+              a governed workflow in production.
+            </p>
+            <div className="mt-8">
+              <Link
+                to="/how-it-works"
+                className="inline-flex items-center gap-2 rounded-full bg-honey px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-paper"
+              >
+                See how BNext AI works
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
+          <aside className="md:col-span-5">
+            <ol className="space-y-3">
+              {stages.map((s, i) => (
+                <li
+                  key={s}
+                  className="flex items-center gap-4 border-t border-paper/15 pt-3"
+                >
+                  <span className="grid h-8 w-8 place-items-center rounded-full border border-honey/40 text-xs text-honey">
+                    {i + 1}
+                  </span>
+                  <span className="font-display text-2xl">{s}</span>
+                </li>
+              ))}
+            </ol>
+          </aside>
+        </div>
+      </DarkBrandBand>
+
+      {/* Metric grid with source line */}
+      <Section bg="paper">
+        <Reveal>
+          <Eyebrow>Why this matters</Eyebrow>
+          <h2 className="mt-4 max-w-3xl font-display text-4xl leading-tight md:text-5xl">
+            Most small businesses know AI matters. Few have a route to make it real.
+          </h2>
+        </Reveal>
+        <div className="mt-14">
+          <MetricGrid
+            items={[
+              { value: "72%", label: "of Canadian SMBs say AI will affect their business within 3 years." },
+              { value: "1 in 4", label: "have moved past experimentation into a production workflow." },
+              { value: "6 stages", label: "from AI curiosity to a governed workflow in your business." },
+              { value: "Free", label: "to eligible Ontario businesses; delivered in person in Brampton." },
+            ]}
+            source="BNext AI intake conversations, 2024–2025 · Statistics Canada CSBO"
+          />
         </div>
       </Section>
 
@@ -313,7 +255,7 @@ function HomePage() {
         <Reveal>
           <Eyebrow>AI in action</Eyebrow>
           <div className="mt-4 flex flex-wrap items-end justify-between gap-6">
-            <h2 className="font-display text-5xl leading-[1.05] md:text-6xl">
+            <h2 className="font-display text-4xl leading-[1.05] md:text-6xl">
               See where AI already fits.
             </h2>
             <Link
@@ -345,52 +287,31 @@ function HomePage() {
         </div>
       </Section>
 
-      {/* Legacy */}
+      {/* Artifacts */}
       <Section bg="paper">
         <div className="grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-6">
+          <div className="md:col-span-5">
             <Reveal>
-              <Eyebrow>The BHive legacy</Eyebrow>
-              <h2 className="mt-4 font-display text-4xl leading-tight md:text-5xl">
-                Before we helped businesses adopt AI, we helped people build them.
+              <Eyebrow>Artifacts</Eyebrow>
+              <h2 className="mt-4 font-display text-4xl leading-[1.05] md:text-6xl">
+                Leave with work your business can use.
               </h2>
             </Reveal>
-            <Reveal delay={0.05}>
-              <p className="mt-6 text-lg text-muted-foreground">
-                The BHive opened in downtown Brampton in 2022, in partnership with the
-                City of Brampton. Through Brampton Next and the Global Entrepreneur
-                Incubation Program, founders from around the world found practical
-                education, direct guidance, a place to build, and a trusted network.
-              </p>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Those programs have concluded. Their playbook lives on in BNext AI:
-                practical education over theory, one-to-one guidance that respects the
-                owner's time, and a network built on fit and trust.
-              </p>
-            </Reveal>
-            <Reveal delay={0.15}>
-              <div className="mt-8">
-                <CTAButton to="/about" variant="ghost">
-                  About The BHive
-                </CTAButton>
-              </div>
-            </Reveal>
           </div>
-          <Reveal delay={0.1}>
-            <div className="md:col-span-6">
-              <div className="rounded-sm border border-ink/10 bg-muted p-8">
-                <p className="eyebrow text-honey-deep">Legacy</p>
-                <p className="mt-6 border-t border-border pt-6 text-lg text-ink">
-                  Since 2022, The BHive has supported entrepreneurs and early-stage businesses through practical education, direct guidance, and trusted networks in downtown Brampton.
-                </p>
-                <p className="mt-4 text-sm text-muted-foreground">
-                  That community — founders, mentors, and alumni — is part of the ground BNext AI now builds on.
-                </p>
-              </div>
-            </div>
-          </Reveal>
+          <div className="md:col-span-7">
+            <ul className="divide-y divide-border">
+              {artifacts.map((a, i) => (
+                <Reveal key={a} delay={i * 0.03}>
+                  <li className="flex items-center gap-6 py-5">
+                    <span className="font-display text-3xl text-honey-deep">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-lg">{a}</span>
+                  </li>
+                </Reveal>
+              ))}
+            </ul>
+          </div>
         </div>
       </Section>
 
@@ -398,7 +319,7 @@ function HomePage() {
       <Section bg="ink">
         <Reveal>
           <Eyebrow>Trust</Eyebrow>
-          <h2 className="mt-4 max-w-4xl font-display text-5xl leading-[1.05] md:text-6xl text-paper">
+          <h2 className="mt-4 max-w-4xl font-display text-4xl leading-[1.05] md:text-6xl text-paper">
             No catch. Here is the model.
           </h2>
         </Reveal>
@@ -416,7 +337,7 @@ function HomePage() {
       {/* Closing CTA */}
       <Section bg="honey">
         <Reveal>
-          <h2 className="max-w-4xl font-display text-5xl leading-[1.05] md:text-7xl">
+          <h2 className="max-w-4xl font-display text-4xl leading-[1.05] md:text-7xl">
             You do not need the whole map. You need the right next move.
           </h2>
         </Reveal>
