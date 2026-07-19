@@ -106,27 +106,44 @@ function BNextAI() {
           <Eyebrow>What you leave with</Eyebrow>
           <h2 className="mt-4 font-display text-4xl md:text-5xl text-paper">Artifact comparison by route.</h2>
         </Reveal>
-        <div className="mt-12 overflow-x-auto">
+        {/* Desktop: comparison table with tinted recommended column */}
+        <div className="mt-12 hidden overflow-x-auto md:block">
           <table className="w-full min-w-[720px] border-collapse text-left text-paper">
             <thead>
               <tr className="border-b border-paper/20 text-xs uppercase tracking-widest text-paper/60">
                 <th className="py-4 pr-4 font-medium">Artifact</th>
                 <th className="py-4 px-4 text-center font-medium">New to AI</th>
                 <th className="py-4 px-4 text-center font-medium">Experimenting</th>
-                <th className="py-4 px-4 text-center font-medium">Ready to implement</th>
+                <th className="py-4 px-4 text-center font-medium bg-honey/10 text-honey">Ready to implement</th>
               </tr>
             </thead>
             <tbody>
               {artifactRows.map((r) => (
-                <tr key={r[0]} className="border-b border-paper/10">
+                <tr key={r[0]} className="border-b border-paper/10 transition-colors hover:bg-paper/5">
                   <td className="py-4 pr-4 font-medium">{r[0]}</td>
                   <td className="py-4 px-4 text-center text-paper/80">{r[1]}</td>
                   <td className="py-4 px-4 text-center text-paper/80">{r[2]}</td>
-                  <td className="py-4 px-4 text-center text-honey">{r[3]}</td>
+                  <td className="py-4 px-4 text-center text-honey bg-honey/10">{r[3]}</td>
                 </tr>
               ))}
             </tbody>
           </table>
+        </div>
+        {/* Mobile: three route cards */}
+        <div className="mt-12 grid gap-4 md:hidden">
+          {(["New to AI", "Experimenting", "Ready to implement"] as const).map((route, colIdx) => (
+            <div key={route} className={`rounded-sm border p-6 ${colIdx === 2 ? "border-honey bg-honey/5" : "border-paper/20"}`}>
+              <p className={`eyebrow ${colIdx === 2 ? "text-honey" : "text-paper/60"}`}>{route}</p>
+              <ul className="mt-4 space-y-2 text-sm">
+                {artifactRows.map((r) => (
+                  <li key={r[0]} className="flex items-baseline justify-between gap-4 border-b border-paper/10 py-2">
+                    <span className="text-paper/80">{r[0]}</span>
+                    <span className={colIdx === 2 ? "text-honey font-medium" : "text-paper/60"}>{r[colIdx + 1]}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </Section>
 
