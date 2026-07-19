@@ -36,13 +36,13 @@ export function SelectField({
   hint,
   children,
   ...rest
-}: Base & InputHTMLAttributes<HTMLSelectElement> & { children: ReactNode }) {
+}: Base & React.SelectHTMLAttributes<HTMLSelectElement> & { children: ReactNode }) {
   return (
     <label className="block">
       <span className="block text-sm font-medium text-ink">{label}</span>
       {hint && <span className="mt-0.5 block text-xs text-muted-foreground">{hint}</span>}
       <select
-        {...(rest as never)}
+        {...rest}
         className="mt-2 w-full rounded-sm border border-border bg-paper px-3 py-2.5 text-sm text-ink outline-none focus:border-honey-deep"
       >
         {children}
