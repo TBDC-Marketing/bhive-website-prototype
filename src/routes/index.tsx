@@ -381,22 +381,12 @@ function HomePage() {
           <Reveal delay={0.1}>
             <div className="md:col-span-6">
               <div className="rounded-sm border border-ink/10 bg-muted p-8">
-                <p className="eyebrow text-honey-deep">Provisional legacy proof</p>
-                <div className="mt-6 grid grid-cols-3 gap-4 border-t border-border pt-6">
-                  {[
-                    ["100+", "startups"],
-                    ["17", "countries"],
-                    ["50+", "alumni"],
-                  ].map(([n, l]) => (
-                    <div key={l as string}>
-                      <p className="font-display text-4xl text-ink md:text-5xl">{n}</p>
-                      <p className="mt-2 text-sm text-muted-foreground">{l}</p>
-                    </div>
-                  ))}
-                </div>
-                <p className="mt-6 text-xs text-muted-foreground">
-                  Retired-site figures. Subject to leadership reconciliation with strategy
-                  materials.
+                <p className="eyebrow text-honey-deep">Legacy</p>
+                <p className="mt-6 border-t border-border pt-6 text-lg text-ink">
+                  Since 2022, The BHive has supported entrepreneurs and early-stage businesses through practical education, direct guidance, and trusted networks in downtown Brampton.
+                </p>
+                <p className="mt-4 text-sm text-muted-foreground">
+                  That community — founders, mentors, and alumni — is part of the ground BNext AI now builds on.
                 </p>
               </div>
             </div>
