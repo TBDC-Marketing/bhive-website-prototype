@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { CTAButton, Eyebrow, PageHero, Reveal, Section } from "../components/site/primitives";
 import { stories } from "../content/site";
 
@@ -56,15 +56,13 @@ function StoriesIndex() {
 
         <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {stories.map((s) => (
-            <Link
+            <div
               key={s.slug}
-              to="/stories/$slug"
-              params={{ slug: s.slug }}
-              className="rounded-sm border border-ink/10 bg-muted p-6 transition-all hover:border-ink"
+              className="rounded-sm border border-ink/10 bg-muted p-6"
             >
               <p className="eyebrow text-honey-deep">{s.evidenceStatus}</p>
               <p className="mt-3 text-lg leading-snug">{s.headline}</p>
-            </Link>
+            </div>
           ))}
         </div>
       </Section>

@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { CTAButton, Reveal, Section } from "../components/site/primitives";
-import { events } from "../content/events";
+import { events, eventStatus } from "../content/events";
 import { TextField, TextArea, FormNote } from "../components/site/FormField";
 import { useState } from "react";
 
@@ -29,17 +29,27 @@ export const Route = createFileRoute("/events/$slug")({
 
 function EventDetail() {
   const e = Route.useLoaderData();
-  const [reserved, setReserved] = useState(false);
+  const status = eventStatus(e);
+  const isPast = status === "past";
+  const [submitted, setSubmitted] = useState(false);
+
+  // Dedupe format from location.
+  const locBase = e.location.replace(new RegExp(`\\s*·\\s*${e.format}$`, "i"), "").trim();
+  const showFormat = !e.location.toLowerCase().includes(e.format.toLowerCase());
 
   return (
     <>
       <section className="border-b border-border/40 bg-paper">
         <div className="mx-auto max-w-7xl px-6 pt-16 pb-20 md:pt-24">
-          <Reveal>
-            <p className="eyebrow text-honey-deep">{e.type} · Best for {e.bestFor}</p>
+          <Reveal eager>
+            <p className="eyebrow text-honey-deep">
+              {e.type} · Best for {e.bestFor}
+              {isPast && <span className="ml-3 rounded-full bg-muted px-2 py-0.5 text-[10px] text-ink">This event has ended</span>}
+            </p>
             <h1 className="mt-6 max-w-4xl font-display text-5xl md:text-6xl">{e.title}</h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              {new Date(e.date).toLocaleDateString("en-CA", { dateStyle: "long" })} · {e.timeLabel} · {e.location} · {e.format}
+              {new Date(e.date).toLocaleDateString("en-CA", { dateStyle: "long" })} · {e.timeLabel} · {locBase}
+              {showFormat ? ` · ${e.format}` : ""}
             </p>
             <p className="mt-6 max-w-2xl text-lg text-ink">{e.outcome}</p>
           </Reveal>
@@ -60,25 +70,42 @@ function EventDetail() {
           </div>
 
           <aside className="h-fit rounded-md border border-border bg-card p-6 shadow-[var(--shadow-frame)]">
-            {reserved ? (
+            {isPast ? (
               <div>
-                <p className="eyebrow text-honey-deep">You are registered</p>
-                <h3 className="mt-3 font-display text-2xl">Now make the session useful.</h3>
-                <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                  <li>· Add it to your calendar.</li>
-                  <li>· Share it with a colleague who owns the workflow.</li>
-                  <li>· Complete the two-minute preparation prompt.</li>
-                </ul>
+                <p className="eyebrow text-honey-deep">This event has ended</p>
+                <p className="mt-3 text-sm text-muted-foreground">
+                  Registration is closed. Reach out if you'd like notes or to hear about the next session.
+                </p>
+                <div className="mt-4">
+                  <CTAButton to="/contact" variant="ghost">Contact the program</CTAButton>
+                </div>
+              </div>
+            ) : submitted ? (
+              <div>
+                <p className="eyebrow text-honey-deep">Request sent</p>
+                <p className="mt-3 text-sm text-muted-foreground">
+                  Registration isn't wired to a live backend yet. Email{" "}
+                  <a href="mailto:bnextai@thebhive.ca" className="underline">bnextai@thebhive.ca</a>{" "}
+                  to confirm your place.
+                </p>
               </div>
             ) : (
-              <form onSubmit={(ev) => { ev.preventDefault(); setReserved(true); }} className="space-y-4">
+              <form
+                onSubmit={(ev) => { ev.preventDefault(); setSubmitted(true); }}
+                className="space-y-4"
+              >
                 <p className="eyebrow text-honey-deep">Reserve my place</p>
+                <p className="text-xs text-muted-foreground">
+                  Reservations open soon. Until then, email{" "}
+                  <a href="mailto:bnextai@thebhive.ca" className="underline">bnextai@thebhive.ca</a>{" "}
+                  to confirm your place.
+                </p>
                 <TextField label="Name" required />
                 <TextField label="Company" required />
                 <TextField label="Email" type="email" required />
                 <TextArea label="Who else should join you?" hint="A workflow owner or decision-maker makes the session more useful." />
                 <button className="w-full rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper hover:bg-honey-deep hover:text-ink">
-                  Reserve my place
+                  Email the program to reserve
                 </button>
                 <FormNote>Do not include customer, employee, financial, or health data.</FormNote>
               </form>

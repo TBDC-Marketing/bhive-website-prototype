@@ -11,14 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VendorNetworkRouteImport } from './routes/vendor-network'
 import { Route as TermsRouteImport } from './routes/terms'
-import { Route as TeamRouteImport } from './routes/team'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as EligibilityRouteImport } from './routes/eligibility'
-import { Route as DemosRouteImport } from './routes/demos'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BnextAiRouteImport } from './routes/bnext-ai'
@@ -27,27 +25,20 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as StoriesIndexRouteImport } from './routes/stories.index'
 import { Route as StartIndexRouteImport } from './routes/start.index'
-import { Route as SignalIndexRouteImport } from './routes/signal.index'
-import { Route as ParticipantsIndexRouteImport } from './routes/participants.index'
 import { Route as InsightsIndexRouteImport } from './routes/insights.index'
 import { Route as FieldGuidesIndexRouteImport } from './routes/field-guides.index'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as ApplyIndexRouteImport } from './routes/apply.index'
 import { Route as AiInActionIndexRouteImport } from './routes/ai-in-action.index'
 import { Route as VendorsApplyRouteImport } from './routes/vendors.apply'
-import { Route as StoriesSlugRouteImport } from './routes/stories.$slug'
-import { Route as StartResultsRouteImport } from './routes/start.results'
 import { Route as StartReadyToImplementRouteImport } from './routes/start.ready-to-implement'
 import { Route as StartNewToAiRouteImport } from './routes/start.new-to-ai'
 import { Route as StartExperimentingRouteImport } from './routes/start.experimenting'
-import { Route as SignalIssueRouteImport } from './routes/signal.$issue'
 import { Route as SectorsSectorRouteImport } from './routes/sectors.$sector'
 import { Route as ReferralPartnerRouteImport } from './routes/referral.$partner'
-import { Route as ParticipantsDashboardRouteImport } from './routes/participants.dashboard'
 import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
 import { Route as FieldGuidesSlugRouteImport } from './routes/field-guides.$slug'
 import { Route as EventsSlugRouteImport } from './routes/events.$slug'
-import { Route as CampaignCampaignRouteImport } from './routes/campaign.$campaign'
 import { Route as ApplyConfirmationRouteImport } from './routes/apply.confirmation'
 import { Route as AiInActionSlugRouteImport } from './routes/ai-in-action.$slug'
 
@@ -59,11 +50,6 @@ const VendorNetworkRoute = VendorNetworkRouteImport.update({
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TeamRoute = TeamRouteImport.update({
-  id: '/team',
-  path: '/team',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -94,11 +80,6 @@ const HowItWorksRoute = HowItWorksRouteImport.update({
 const EligibilityRoute = EligibilityRouteImport.update({
   id: '/eligibility',
   path: '/eligibility',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemosRoute = DemosRouteImport.update({
-  id: '/demos',
-  path: '/demos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CookiesRoute = CookiesRouteImport.update({
@@ -141,16 +122,6 @@ const StartIndexRoute = StartIndexRouteImport.update({
   path: '/start/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SignalIndexRoute = SignalIndexRouteImport.update({
-  id: '/signal/',
-  path: '/signal/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ParticipantsIndexRoute = ParticipantsIndexRouteImport.update({
-  id: '/participants/',
-  path: '/participants/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const InsightsIndexRoute = InsightsIndexRouteImport.update({
   id: '/insights/',
   path: '/insights/',
@@ -181,16 +152,6 @@ const VendorsApplyRoute = VendorsApplyRouteImport.update({
   path: '/vendors/apply',
   getParentRoute: () => rootRouteImport,
 } as any)
-const StoriesSlugRoute = StoriesSlugRouteImport.update({
-  id: '/stories/$slug',
-  path: '/stories/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const StartResultsRoute = StartResultsRouteImport.update({
-  id: '/start/results',
-  path: '/start/results',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const StartReadyToImplementRoute = StartReadyToImplementRouteImport.update({
   id: '/start/ready-to-implement',
   path: '/start/ready-to-implement',
@@ -206,11 +167,6 @@ const StartExperimentingRoute = StartExperimentingRouteImport.update({
   path: '/start/experimenting',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SignalIssueRoute = SignalIssueRouteImport.update({
-  id: '/signal/$issue',
-  path: '/signal/$issue',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SectorsSectorRoute = SectorsSectorRouteImport.update({
   id: '/sectors/$sector',
   path: '/sectors/$sector',
@@ -219,11 +175,6 @@ const SectorsSectorRoute = SectorsSectorRouteImport.update({
 const ReferralPartnerRoute = ReferralPartnerRouteImport.update({
   id: '/referral/$partner',
   path: '/referral/$partner',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ParticipantsDashboardRoute = ParticipantsDashboardRouteImport.update({
-  id: '/participants/dashboard',
-  path: '/participants/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InsightsSlugRoute = InsightsSlugRouteImport.update({
@@ -239,11 +190,6 @@ const FieldGuidesSlugRoute = FieldGuidesSlugRouteImport.update({
 const EventsSlugRoute = EventsSlugRouteImport.update({
   id: '/events/$slug',
   path: '/events/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CampaignCampaignRoute = CampaignCampaignRouteImport.update({
-  id: '/campaign/$campaign',
-  path: '/campaign/$campaign',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApplyConfirmationRoute = ApplyConfirmationRouteImport.update({
@@ -264,39 +210,30 @@ export interface FileRoutesByFullPath {
   '/bnext-ai': typeof BnextAiRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
-  '/demos': typeof DemosRoute
   '/eligibility': typeof EligibilityRoute
   '/how-it-works': typeof HowItWorksRoute
   '/partners': typeof PartnersRoute
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/vendor-network': typeof VendorNetworkRoute
   '/ai-in-action/$slug': typeof AiInActionSlugRoute
   '/apply/confirmation': typeof ApplyConfirmationRoute
-  '/campaign/$campaign': typeof CampaignCampaignRoute
   '/events/$slug': typeof EventsSlugRoute
   '/field-guides/$slug': typeof FieldGuidesSlugRoute
   '/insights/$slug': typeof InsightsSlugRoute
-  '/participants/dashboard': typeof ParticipantsDashboardRoute
   '/referral/$partner': typeof ReferralPartnerRoute
   '/sectors/$sector': typeof SectorsSectorRoute
-  '/signal/$issue': typeof SignalIssueRoute
   '/start/experimenting': typeof StartExperimentingRoute
   '/start/new-to-ai': typeof StartNewToAiRoute
   '/start/ready-to-implement': typeof StartReadyToImplementRoute
-  '/start/results': typeof StartResultsRoute
-  '/stories/$slug': typeof StoriesSlugRoute
   '/vendors/apply': typeof VendorsApplyRoute
   '/ai-in-action/': typeof AiInActionIndexRoute
   '/apply/': typeof ApplyIndexRoute
   '/events/': typeof EventsIndexRoute
   '/field-guides/': typeof FieldGuidesIndexRoute
   '/insights/': typeof InsightsIndexRoute
-  '/participants/': typeof ParticipantsIndexRoute
-  '/signal/': typeof SignalIndexRoute
   '/start/': typeof StartIndexRoute
   '/stories/': typeof StoriesIndexRoute
 }
@@ -307,39 +244,30 @@ export interface FileRoutesByTo {
   '/bnext-ai': typeof BnextAiRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
-  '/demos': typeof DemosRoute
   '/eligibility': typeof EligibilityRoute
   '/how-it-works': typeof HowItWorksRoute
   '/partners': typeof PartnersRoute
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/vendor-network': typeof VendorNetworkRoute
   '/ai-in-action/$slug': typeof AiInActionSlugRoute
   '/apply/confirmation': typeof ApplyConfirmationRoute
-  '/campaign/$campaign': typeof CampaignCampaignRoute
   '/events/$slug': typeof EventsSlugRoute
   '/field-guides/$slug': typeof FieldGuidesSlugRoute
   '/insights/$slug': typeof InsightsSlugRoute
-  '/participants/dashboard': typeof ParticipantsDashboardRoute
   '/referral/$partner': typeof ReferralPartnerRoute
   '/sectors/$sector': typeof SectorsSectorRoute
-  '/signal/$issue': typeof SignalIssueRoute
   '/start/experimenting': typeof StartExperimentingRoute
   '/start/new-to-ai': typeof StartNewToAiRoute
   '/start/ready-to-implement': typeof StartReadyToImplementRoute
-  '/start/results': typeof StartResultsRoute
-  '/stories/$slug': typeof StoriesSlugRoute
   '/vendors/apply': typeof VendorsApplyRoute
   '/ai-in-action': typeof AiInActionIndexRoute
   '/apply': typeof ApplyIndexRoute
   '/events': typeof EventsIndexRoute
   '/field-guides': typeof FieldGuidesIndexRoute
   '/insights': typeof InsightsIndexRoute
-  '/participants': typeof ParticipantsIndexRoute
-  '/signal': typeof SignalIndexRoute
   '/start': typeof StartIndexRoute
   '/stories': typeof StoriesIndexRoute
 }
@@ -351,39 +279,30 @@ export interface FileRoutesById {
   '/bnext-ai': typeof BnextAiRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
-  '/demos': typeof DemosRoute
   '/eligibility': typeof EligibilityRoute
   '/how-it-works': typeof HowItWorksRoute
   '/partners': typeof PartnersRoute
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/vendor-network': typeof VendorNetworkRoute
   '/ai-in-action/$slug': typeof AiInActionSlugRoute
   '/apply/confirmation': typeof ApplyConfirmationRoute
-  '/campaign/$campaign': typeof CampaignCampaignRoute
   '/events/$slug': typeof EventsSlugRoute
   '/field-guides/$slug': typeof FieldGuidesSlugRoute
   '/insights/$slug': typeof InsightsSlugRoute
-  '/participants/dashboard': typeof ParticipantsDashboardRoute
   '/referral/$partner': typeof ReferralPartnerRoute
   '/sectors/$sector': typeof SectorsSectorRoute
-  '/signal/$issue': typeof SignalIssueRoute
   '/start/experimenting': typeof StartExperimentingRoute
   '/start/new-to-ai': typeof StartNewToAiRoute
   '/start/ready-to-implement': typeof StartReadyToImplementRoute
-  '/start/results': typeof StartResultsRoute
-  '/stories/$slug': typeof StoriesSlugRoute
   '/vendors/apply': typeof VendorsApplyRoute
   '/ai-in-action/': typeof AiInActionIndexRoute
   '/apply/': typeof ApplyIndexRoute
   '/events/': typeof EventsIndexRoute
   '/field-guides/': typeof FieldGuidesIndexRoute
   '/insights/': typeof InsightsIndexRoute
-  '/participants/': typeof ParticipantsIndexRoute
-  '/signal/': typeof SignalIndexRoute
   '/start/': typeof StartIndexRoute
   '/stories/': typeof StoriesIndexRoute
 }
@@ -396,39 +315,30 @@ export interface FileRouteTypes {
     | '/bnext-ai'
     | '/contact'
     | '/cookies'
-    | '/demos'
     | '/eligibility'
     | '/how-it-works'
     | '/partners'
     | '/privacy'
     | '/search'
     | '/sitemap.xml'
-    | '/team'
     | '/terms'
     | '/vendor-network'
     | '/ai-in-action/$slug'
     | '/apply/confirmation'
-    | '/campaign/$campaign'
     | '/events/$slug'
     | '/field-guides/$slug'
     | '/insights/$slug'
-    | '/participants/dashboard'
     | '/referral/$partner'
     | '/sectors/$sector'
-    | '/signal/$issue'
     | '/start/experimenting'
     | '/start/new-to-ai'
     | '/start/ready-to-implement'
-    | '/start/results'
-    | '/stories/$slug'
     | '/vendors/apply'
     | '/ai-in-action/'
     | '/apply/'
     | '/events/'
     | '/field-guides/'
     | '/insights/'
-    | '/participants/'
-    | '/signal/'
     | '/start/'
     | '/stories/'
   fileRoutesByTo: FileRoutesByTo
@@ -439,39 +349,30 @@ export interface FileRouteTypes {
     | '/bnext-ai'
     | '/contact'
     | '/cookies'
-    | '/demos'
     | '/eligibility'
     | '/how-it-works'
     | '/partners'
     | '/privacy'
     | '/search'
     | '/sitemap.xml'
-    | '/team'
     | '/terms'
     | '/vendor-network'
     | '/ai-in-action/$slug'
     | '/apply/confirmation'
-    | '/campaign/$campaign'
     | '/events/$slug'
     | '/field-guides/$slug'
     | '/insights/$slug'
-    | '/participants/dashboard'
     | '/referral/$partner'
     | '/sectors/$sector'
-    | '/signal/$issue'
     | '/start/experimenting'
     | '/start/new-to-ai'
     | '/start/ready-to-implement'
-    | '/start/results'
-    | '/stories/$slug'
     | '/vendors/apply'
     | '/ai-in-action'
     | '/apply'
     | '/events'
     | '/field-guides'
     | '/insights'
-    | '/participants'
-    | '/signal'
     | '/start'
     | '/stories'
   id:
@@ -482,39 +383,30 @@ export interface FileRouteTypes {
     | '/bnext-ai'
     | '/contact'
     | '/cookies'
-    | '/demos'
     | '/eligibility'
     | '/how-it-works'
     | '/partners'
     | '/privacy'
     | '/search'
     | '/sitemap.xml'
-    | '/team'
     | '/terms'
     | '/vendor-network'
     | '/ai-in-action/$slug'
     | '/apply/confirmation'
-    | '/campaign/$campaign'
     | '/events/$slug'
     | '/field-guides/$slug'
     | '/insights/$slug'
-    | '/participants/dashboard'
     | '/referral/$partner'
     | '/sectors/$sector'
-    | '/signal/$issue'
     | '/start/experimenting'
     | '/start/new-to-ai'
     | '/start/ready-to-implement'
-    | '/start/results'
-    | '/stories/$slug'
     | '/vendors/apply'
     | '/ai-in-action/'
     | '/apply/'
     | '/events/'
     | '/field-guides/'
     | '/insights/'
-    | '/participants/'
-    | '/signal/'
     | '/start/'
     | '/stories/'
   fileRoutesById: FileRoutesById
@@ -526,39 +418,30 @@ export interface RootRouteChildren {
   BnextAiRoute: typeof BnextAiRoute
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
-  DemosRoute: typeof DemosRoute
   EligibilityRoute: typeof EligibilityRoute
   HowItWorksRoute: typeof HowItWorksRoute
   PartnersRoute: typeof PartnersRoute
   PrivacyRoute: typeof PrivacyRoute
   SearchRoute: typeof SearchRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  TeamRoute: typeof TeamRoute
   TermsRoute: typeof TermsRoute
   VendorNetworkRoute: typeof VendorNetworkRoute
   AiInActionSlugRoute: typeof AiInActionSlugRoute
   ApplyConfirmationRoute: typeof ApplyConfirmationRoute
-  CampaignCampaignRoute: typeof CampaignCampaignRoute
   EventsSlugRoute: typeof EventsSlugRoute
   FieldGuidesSlugRoute: typeof FieldGuidesSlugRoute
   InsightsSlugRoute: typeof InsightsSlugRoute
-  ParticipantsDashboardRoute: typeof ParticipantsDashboardRoute
   ReferralPartnerRoute: typeof ReferralPartnerRoute
   SectorsSectorRoute: typeof SectorsSectorRoute
-  SignalIssueRoute: typeof SignalIssueRoute
   StartExperimentingRoute: typeof StartExperimentingRoute
   StartNewToAiRoute: typeof StartNewToAiRoute
   StartReadyToImplementRoute: typeof StartReadyToImplementRoute
-  StartResultsRoute: typeof StartResultsRoute
-  StoriesSlugRoute: typeof StoriesSlugRoute
   VendorsApplyRoute: typeof VendorsApplyRoute
   AiInActionIndexRoute: typeof AiInActionIndexRoute
   ApplyIndexRoute: typeof ApplyIndexRoute
   EventsIndexRoute: typeof EventsIndexRoute
   FieldGuidesIndexRoute: typeof FieldGuidesIndexRoute
   InsightsIndexRoute: typeof InsightsIndexRoute
-  ParticipantsIndexRoute: typeof ParticipantsIndexRoute
-  SignalIndexRoute: typeof SignalIndexRoute
   StartIndexRoute: typeof StartIndexRoute
   StoriesIndexRoute: typeof StoriesIndexRoute
 }
@@ -577,13 +460,6 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/team': {
-      id: '/team'
-      path: '/team'
-      fullPath: '/team'
-      preLoaderRoute: typeof TeamRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -626,13 +502,6 @@ declare module '@tanstack/react-router' {
       path: '/eligibility'
       fullPath: '/eligibility'
       preLoaderRoute: typeof EligibilityRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demos': {
-      id: '/demos'
-      path: '/demos'
-      fullPath: '/demos'
-      preLoaderRoute: typeof DemosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cookies': {
@@ -691,20 +560,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StartIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/signal/': {
-      id: '/signal/'
-      path: '/signal'
-      fullPath: '/signal/'
-      preLoaderRoute: typeof SignalIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/participants/': {
-      id: '/participants/'
-      path: '/participants'
-      fullPath: '/participants/'
-      preLoaderRoute: typeof ParticipantsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/insights/': {
       id: '/insights/'
       path: '/insights'
@@ -747,20 +602,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VendorsApplyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/stories/$slug': {
-      id: '/stories/$slug'
-      path: '/stories/$slug'
-      fullPath: '/stories/$slug'
-      preLoaderRoute: typeof StoriesSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/start/results': {
-      id: '/start/results'
-      path: '/start/results'
-      fullPath: '/start/results'
-      preLoaderRoute: typeof StartResultsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/start/ready-to-implement': {
       id: '/start/ready-to-implement'
       path: '/start/ready-to-implement'
@@ -782,13 +623,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StartExperimentingRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/signal/$issue': {
-      id: '/signal/$issue'
-      path: '/signal/$issue'
-      fullPath: '/signal/$issue'
-      preLoaderRoute: typeof SignalIssueRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/sectors/$sector': {
       id: '/sectors/$sector'
       path: '/sectors/$sector'
@@ -801,13 +635,6 @@ declare module '@tanstack/react-router' {
       path: '/referral/$partner'
       fullPath: '/referral/$partner'
       preLoaderRoute: typeof ReferralPartnerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/participants/dashboard': {
-      id: '/participants/dashboard'
-      path: '/participants/dashboard'
-      fullPath: '/participants/dashboard'
-      preLoaderRoute: typeof ParticipantsDashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/insights/$slug': {
@@ -829,13 +656,6 @@ declare module '@tanstack/react-router' {
       path: '/events/$slug'
       fullPath: '/events/$slug'
       preLoaderRoute: typeof EventsSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/campaign/$campaign': {
-      id: '/campaign/$campaign'
-      path: '/campaign/$campaign'
-      fullPath: '/campaign/$campaign'
-      preLoaderRoute: typeof CampaignCampaignRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/apply/confirmation': {
@@ -862,52 +682,33 @@ const rootRouteChildren: RootRouteChildren = {
   BnextAiRoute: BnextAiRoute,
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
-  DemosRoute: DemosRoute,
   EligibilityRoute: EligibilityRoute,
   HowItWorksRoute: HowItWorksRoute,
   PartnersRoute: PartnersRoute,
   PrivacyRoute: PrivacyRoute,
   SearchRoute: SearchRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  TeamRoute: TeamRoute,
   TermsRoute: TermsRoute,
   VendorNetworkRoute: VendorNetworkRoute,
   AiInActionSlugRoute: AiInActionSlugRoute,
   ApplyConfirmationRoute: ApplyConfirmationRoute,
-  CampaignCampaignRoute: CampaignCampaignRoute,
   EventsSlugRoute: EventsSlugRoute,
   FieldGuidesSlugRoute: FieldGuidesSlugRoute,
   InsightsSlugRoute: InsightsSlugRoute,
-  ParticipantsDashboardRoute: ParticipantsDashboardRoute,
   ReferralPartnerRoute: ReferralPartnerRoute,
   SectorsSectorRoute: SectorsSectorRoute,
-  SignalIssueRoute: SignalIssueRoute,
   StartExperimentingRoute: StartExperimentingRoute,
   StartNewToAiRoute: StartNewToAiRoute,
   StartReadyToImplementRoute: StartReadyToImplementRoute,
-  StartResultsRoute: StartResultsRoute,
-  StoriesSlugRoute: StoriesSlugRoute,
   VendorsApplyRoute: VendorsApplyRoute,
   AiInActionIndexRoute: AiInActionIndexRoute,
   ApplyIndexRoute: ApplyIndexRoute,
   EventsIndexRoute: EventsIndexRoute,
   FieldGuidesIndexRoute: FieldGuidesIndexRoute,
   InsightsIndexRoute: InsightsIndexRoute,
-  ParticipantsIndexRoute: ParticipantsIndexRoute,
-  SignalIndexRoute: SignalIndexRoute,
   StartIndexRoute: StartIndexRoute,
   StoriesIndexRoute: StoriesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

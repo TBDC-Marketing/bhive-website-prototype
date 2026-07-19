@@ -97,7 +97,7 @@ function BNextAI() {
           ))}
         </div>
         <p className="mt-6 text-xs text-muted-foreground">
-          Final delivery hours and schedules remain CMS-managed until each cohort calendar is approved.
+          Session hours and cohort calendars are confirmed with each accepted business.
         </p>
       </Section>
 

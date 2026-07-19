@@ -44,7 +44,7 @@ function ApplyPage() {
                 </li>
               ))}
             </ol>
-            <p className="mt-8 text-xs text-muted-foreground">≈ 6–8 minutes · save and return.</p>
+            <p className="mt-8 text-xs text-muted-foreground">≈ 6–8 minutes. Complete in one sitting — saved drafts aren't available yet.</p>
           </aside>
 
           <form

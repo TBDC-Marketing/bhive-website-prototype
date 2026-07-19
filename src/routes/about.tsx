@@ -101,17 +101,9 @@ function About() {
 
       <Section bg="muted">
         <Reveal>
-          <Eyebrow>Legacy proof</Eyebrow>
-          <div className="mt-6 grid gap-6 md:grid-cols-3">
-            {[["100+", "startups supported"], ["17", "countries represented"], ["50+", "alumni"]].map(([n, l]) => (
-              <div key={l} className="rounded-sm border border-ink/10 bg-paper p-8">
-                <p className="font-display text-6xl">{n}</p>
-                <p className="mt-2 text-muted-foreground">{l}</p>
-              </div>
-            ))}
-          </div>
-          <p className="mt-6 text-xs text-muted-foreground">
-            Retired-site figures. Provisional until leadership reconciliation with strategy figures of 390+ entrepreneurs and 120+ startups.
+          <Eyebrow>Legacy</Eyebrow>
+          <p className="mt-4 max-w-3xl text-lg text-muted-foreground">
+            Since 2022, The BHive has supported entrepreneurs and early-stage businesses through practical education, direct guidance, and trusted networks. That community — founders, mentors, and alumni — is part of the ground BNext AI now builds on. Program figures will be published once reconciled with our leadership team.
           </p>
         </Reveal>
       </Section>

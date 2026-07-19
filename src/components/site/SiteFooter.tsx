@@ -28,20 +28,16 @@ export function SiteFooter() {
             </FooterCol>
             <FooterCol title="Library">
               <FLink to="/ai-in-action">AI in action</FLink>
-              <FLink to="/demos">Demos</FLink>
               <FLink to="/field-guides">Field guides</FLink>
               <FLink to="/insights">Insights</FLink>
               <FLink to="/stories">Stories</FLink>
-              <FLink to="/signal">BNext Signal</FLink>
               <FLink to="/events">Events</FLink>
             </FooterCol>
             <FooterCol title="The BHive">
               <FLink to="/about">About</FLink>
-              <FLink to="/team">Team & advisors</FLink>
               <FLink to="/partners">Partners</FLink>
               <FLink to="/vendor-network">Vendor network</FLink>
               <FLink to="/contact">Contact</FLink>
-              <FLink to="/participants">Participants</FLink>
             </FooterCol>
           </div>
 

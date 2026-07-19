@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CTAButton, Eyebrow, PageHero, Reveal, Section } from "../components/site/primitives";
-import { events } from "../content/events";
+import { events, eventStatus, type BEvent } from "../content/events";
 import { useState } from "react";
 
 export const Route = createFileRoute("/events/")({
@@ -10,9 +10,9 @@ export const Route = createFileRoute("/events/")({
       { name: "description", content: "Bring the business problem. Leave with a next move." },
       { property: "og:title", content: "BNext AI · Events & Clinics" },
       { property: "og:description", content: "Practical sessions, demos, office hours, and peer conversations." },
-      { property: "og:url", content: "/events" },
+      { property: "og:url", content: "https://bhive-bnextai-preview.lovable.app/events" },
     ],
-    links: [{ rel: "canonical", href: "/events" }],
+    links: [{ rel: "canonical", href: "https://bhive-bnextai-preview.lovable.app/events" }],
   }),
   component: EventsIndex,
 });
@@ -21,8 +21,11 @@ const types = ["All", "First Look", "Workflow Clinic", "Decision Room", "Peer Ex
 
 function EventsIndex() {
   const [filter, setFilter] = useState<(typeof types)[number]>("All");
-  const upcoming = events.filter((e) => e.status === "upcoming" && (filter === "All" || e.type === filter));
-  const past = events.filter((e) => e.status === "past");
+  const now = new Date();
+  const upcoming = events.filter(
+    (e) => eventStatus(e, now) === "upcoming" && (filter === "All" || e.type === filter),
+  );
+  const past = events.filter((e) => eventStatus(e, now) === "past");
 
   return (
     <>
@@ -30,7 +33,7 @@ function EventsIndex() {
         eyebrow="Events & clinics"
         title={<>Bring the business problem. <span className="signal-underline">Leave with a next move.</span></>}
         lede="Practical sessions, demonstrations, office hours, and peer conversations for businesses at different starting points."
-        ctas={<CTAButton to="#upcoming">See upcoming events</CTAButton>}
+        ctas={<CTAButton to="/events">See upcoming events</CTAButton>}
       />
 
       <Section bg="paper" id="upcoming">
@@ -52,10 +55,10 @@ function EventsIndex() {
           </div>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-12 grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-3">
           {upcoming.map((e, i) => (
             <Reveal key={e.slug} delay={i * 0.05}>
-              <EventCard e={e} />
+              <EventCard e={e} status="upcoming" />
             </Reveal>
           ))}
           {upcoming.length === 0 && (
@@ -64,18 +67,23 @@ function EventsIndex() {
         </div>
       </Section>
 
-      <Section bg="muted">
-        <Eyebrow>Past events</Eyebrow>
-        <h2 className="mt-3 font-display text-3xl md:text-4xl">Materials from earlier sessions</h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {past.map((e) => <EventCard key={e.slug} e={e} />)}
-        </div>
-      </Section>
+      {past.length > 0 && (
+        <Section bg="muted">
+          <Eyebrow>Past events</Eyebrow>
+          <h2 className="mt-3 font-display text-3xl md:text-4xl">Materials from earlier sessions</h2>
+          <div className="mt-10 grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {past.map((e) => <EventCard key={e.slug} e={e} status="past" />)}
+          </div>
+        </Section>
+      )}
     </>
   );
 }
 
-function EventCard({ e }: { e: (typeof events)[number] }) {
+function EventCard({ e, status }: { e: BEvent; status: "upcoming" | "past" }) {
+  // Dedupe format when the location string already includes it.
+  const locBase = e.location.replace(new RegExp(`\\s*·\\s*${e.format}$`, "i"), "").trim();
+  const showFormat = !e.location.toLowerCase().includes(e.format.toLowerCase());
   return (
     <Link
       to="/events/$slug"
@@ -88,11 +96,15 @@ function EventCard({ e }: { e: (typeof events)[number] }) {
       </div>
       <h3 className="mt-4 font-display text-2xl leading-snug group-hover:text-honey-deep">{e.title}</h3>
       <p className="mt-3 text-sm text-muted-foreground">{e.outcome}</p>
-      <div className="mt-6 grid gap-1 text-sm text-ink">
+      <div className="mt-auto grid gap-1 pt-6 text-sm text-ink">
         <span>{new Date(e.date).toLocaleDateString("en-CA", { dateStyle: "long" })} · {e.timeLabel}</span>
-        <span className="text-muted-foreground">{e.location} · {e.format}</span>
+        <span className="text-muted-foreground">
+          {locBase}{showFormat ? ` · ${e.format}` : ""}
+        </span>
       </div>
-      <span className="mt-6 text-sm font-medium text-honey-deep">{e.status === "upcoming" ? "Reserve my place →" : "Use the materials →"}</span>
+      <span className="mt-6 text-sm font-medium text-honey-deep">
+        {status === "upcoming" ? "Reserve my place →" : "This event has ended →"}
+      </span>
     </Link>
   );
 }

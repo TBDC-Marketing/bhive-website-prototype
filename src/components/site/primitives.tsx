@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import type { ReactNode } from "react";
 
@@ -31,13 +31,30 @@ export function Section({
   );
 }
 
-export function Reveal({ children, delay = 0 }: { children: ReactNode; delay?: number }) {
+/**
+ * Opacity-only reveal. Content is rendered at full visibility for reduced-motion
+ * users and animates only opacity (never y-offset) for others. `eager` disables
+ * the intersection wait so above-the-fold heroes never flash blank.
+ */
+export function Reveal({
+  children,
+  delay = 0,
+  eager = false,
+}: {
+  children: ReactNode;
+  delay?: number;
+  eager?: boolean;
+}) {
+  const reduce = useReducedMotion();
+  if (reduce || eager) {
+    return <div>{children}</div>;
+  }
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "0px", amount: 0.1 }}
+      transition={{ duration: 0.25, delay, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -48,10 +65,12 @@ export function CTAButton({
   to,
   children,
   variant = "primary",
+  search,
 }: {
   to: string;
   children: ReactNode;
   variant?: "primary" | "ghost" | "signal";
+  search?: Record<string, string | number | undefined>;
 }) {
   const cls = {
     primary:
@@ -63,7 +82,8 @@ export function CTAButton({
   return (
     <Link
       to={to}
-      className={`group inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all ${cls}`}
+      search={search as never}
+      className={`group inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-honey focus-visible:ring-offset-2 focus-visible:ring-offset-paper ${cls}`}
     >
       {children}
       <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -92,7 +112,8 @@ export function PageHero({
   return (
     <section className={`${bg} border-b border-border/50`}>
       <div className="mx-auto max-w-7xl px-6 pt-16 pb-20 md:pt-24 md:pb-28">
-        <Reveal>
+        {/* Above-the-fold hero: render eagerly so it can never be invisible. */}
+        <Reveal eager>
           <p className="eyebrow text-honey-deep">{eyebrow}</p>
           <h1 className="mt-6 max-w-4xl font-display text-5xl leading-[1.02] md:text-7xl">
             {title}
@@ -121,3 +142,9 @@ export function StatRow({ items }: { items: string[] }) {
     </div>
   );
 }
+
+/**
+ * Single geography line — write once, use everywhere.
+ */
+export const GEOGRAPHY_LINE =
+  "For established Ontario businesses; delivered in person in Brampton (Peel Region).";
