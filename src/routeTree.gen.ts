@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as VendorNetworkRouteImport } from './routes/vendor-network'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TeamRouteImport } from './routes/team'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as PartnersRouteImport } from './routes/partners'
@@ -63,6 +64,11 @@ const TermsRoute = TermsRouteImport.update({
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
   path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SearchRoute = SearchRouteImport.update({
@@ -264,6 +270,7 @@ export interface FileRoutesByFullPath {
   '/partners': typeof PartnersRoute
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/vendor-network': typeof VendorNetworkRoute
@@ -306,6 +313,7 @@ export interface FileRoutesByTo {
   '/partners': typeof PartnersRoute
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/vendor-network': typeof VendorNetworkRoute
@@ -349,6 +357,7 @@ export interface FileRoutesById {
   '/partners': typeof PartnersRoute
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
   '/terms': typeof TermsRoute
   '/vendor-network': typeof VendorNetworkRoute
@@ -393,6 +402,7 @@ export interface FileRouteTypes {
     | '/partners'
     | '/privacy'
     | '/search'
+    | '/sitemap.xml'
     | '/team'
     | '/terms'
     | '/vendor-network'
@@ -435,6 +445,7 @@ export interface FileRouteTypes {
     | '/partners'
     | '/privacy'
     | '/search'
+    | '/sitemap.xml'
     | '/team'
     | '/terms'
     | '/vendor-network'
@@ -477,6 +488,7 @@ export interface FileRouteTypes {
     | '/partners'
     | '/privacy'
     | '/search'
+    | '/sitemap.xml'
     | '/team'
     | '/terms'
     | '/vendor-network'
@@ -520,6 +532,7 @@ export interface RootRouteChildren {
   PartnersRoute: typeof PartnersRoute
   PrivacyRoute: typeof PrivacyRoute
   SearchRoute: typeof SearchRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TeamRoute: typeof TeamRoute
   TermsRoute: typeof TermsRoute
   VendorNetworkRoute: typeof VendorNetworkRoute
@@ -571,6 +584,13 @@ declare module '@tanstack/react-router' {
       path: '/team'
       fullPath: '/team'
       preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/search': {
@@ -848,6 +868,7 @@ const rootRouteChildren: RootRouteChildren = {
   PartnersRoute: PartnersRoute,
   PrivacyRoute: PrivacyRoute,
   SearchRoute: SearchRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TeamRoute: TeamRoute,
   TermsRoute: TermsRoute,
   VendorNetworkRoute: VendorNetworkRoute,
@@ -880,13 +901,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
