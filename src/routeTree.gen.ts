@@ -13,6 +13,9 @@ import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as BnextAiRouteImport } from './routes/bnext-ai'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as StartIndexRouteImport } from './routes/start.index'
+import { Route as StartReadyToImplementRouteImport } from './routes/start.ready-to-implement'
+import { Route as StartNewToAiRouteImport } from './routes/start.new-to-ai'
+import { Route as StartExperimentingRouteImport } from './routes/start.experimenting'
 
 const HowItWorksRoute = HowItWorksRouteImport.update({
   id: '/how-it-works',
@@ -34,17 +37,38 @@ const StartIndexRoute = StartIndexRouteImport.update({
   path: '/start/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StartReadyToImplementRoute = StartReadyToImplementRouteImport.update({
+  id: '/start/ready-to-implement',
+  path: '/start/ready-to-implement',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StartNewToAiRoute = StartNewToAiRouteImport.update({
+  id: '/start/new-to-ai',
+  path: '/start/new-to-ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StartExperimentingRoute = StartExperimentingRouteImport.update({
+  id: '/start/experimenting',
+  path: '/start/experimenting',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bnext-ai': typeof BnextAiRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/start/experimenting': typeof StartExperimentingRoute
+  '/start/new-to-ai': typeof StartNewToAiRoute
+  '/start/ready-to-implement': typeof StartReadyToImplementRoute
   '/start/': typeof StartIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bnext-ai': typeof BnextAiRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/start/experimenting': typeof StartExperimentingRoute
+  '/start/new-to-ai': typeof StartNewToAiRoute
+  '/start/ready-to-implement': typeof StartReadyToImplementRoute
   '/start': typeof StartIndexRoute
 }
 export interface FileRoutesById {
@@ -52,20 +76,48 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/bnext-ai': typeof BnextAiRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/start/experimenting': typeof StartExperimentingRoute
+  '/start/new-to-ai': typeof StartNewToAiRoute
+  '/start/ready-to-implement': typeof StartReadyToImplementRoute
   '/start/': typeof StartIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bnext-ai' | '/how-it-works' | '/start/'
+  fullPaths:
+    | '/'
+    | '/bnext-ai'
+    | '/how-it-works'
+    | '/start/experimenting'
+    | '/start/new-to-ai'
+    | '/start/ready-to-implement'
+    | '/start/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bnext-ai' | '/how-it-works' | '/start'
-  id: '__root__' | '/' | '/bnext-ai' | '/how-it-works' | '/start/'
+  to:
+    | '/'
+    | '/bnext-ai'
+    | '/how-it-works'
+    | '/start/experimenting'
+    | '/start/new-to-ai'
+    | '/start/ready-to-implement'
+    | '/start'
+  id:
+    | '__root__'
+    | '/'
+    | '/bnext-ai'
+    | '/how-it-works'
+    | '/start/experimenting'
+    | '/start/new-to-ai'
+    | '/start/ready-to-implement'
+    | '/start/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BnextAiRoute: typeof BnextAiRoute
   HowItWorksRoute: typeof HowItWorksRoute
+  StartExperimentingRoute: typeof StartExperimentingRoute
+  StartNewToAiRoute: typeof StartNewToAiRoute
+  StartReadyToImplementRoute: typeof StartReadyToImplementRoute
   StartIndexRoute: typeof StartIndexRoute
 }
 
@@ -99,6 +151,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StartIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/start/ready-to-implement': {
+      id: '/start/ready-to-implement'
+      path: '/start/ready-to-implement'
+      fullPath: '/start/ready-to-implement'
+      preLoaderRoute: typeof StartReadyToImplementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/start/new-to-ai': {
+      id: '/start/new-to-ai'
+      path: '/start/new-to-ai'
+      fullPath: '/start/new-to-ai'
+      preLoaderRoute: typeof StartNewToAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/start/experimenting': {
+      id: '/start/experimenting'
+      path: '/start/experimenting'
+      fullPath: '/start/experimenting'
+      preLoaderRoute: typeof StartExperimentingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -106,6 +179,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BnextAiRoute: BnextAiRoute,
   HowItWorksRoute: HowItWorksRoute,
+  StartExperimentingRoute: StartExperimentingRoute,
+  StartNewToAiRoute: StartNewToAiRoute,
+  StartReadyToImplementRoute: StartReadyToImplementRoute,
   StartIndexRoute: StartIndexRoute,
 }
 export const routeTree = rootRouteImport
