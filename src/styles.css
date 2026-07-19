@@ -84,15 +84,15 @@
   --primary-foreground: var(--paper);
   --secondary: oklch(0.94 0.01 85);
   --secondary-foreground: var(--ink);
-  --muted: oklch(0.945 0.012 85);
-  --muted-foreground: oklch(0.42 0.02 260);
+  --muted: oklch(0.965 0 0);
+  --muted-foreground: oklch(0.42 0 0);
   --accent: var(--honey);
   --accent-foreground: var(--ink);
   --destructive: oklch(0.55 0.22 27);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.9 0.015 85);
-  --input: oklch(0.9 0.015 85);
-  --ring: var(--honey-deep);
+  --border: oklch(0.9 0 0);
+  --input: oklch(0.9 0 0);
+  --ring: var(--ink);
 
   --chart-1: var(--honey);
   --chart-2: var(--honey-deep);
