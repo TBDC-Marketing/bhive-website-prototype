@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { useCases, stories, fieldGuides, insights } from "../content/site";
 import { events } from "../content/events";
-import { signalIssues } from "../content/signal";
 
 const BASE_URL = "https://bhive-bnextai-preview.lovable.app";
 
@@ -18,13 +17,10 @@ const staticPaths = [
   "/eligibility",
   "/apply",
   "/ai-in-action",
-  "/demos",
   "/field-guides",
   "/insights",
   "/stories",
-  "/signal",
   "/events",
-  "/team",
   "/partners",
   "/vendor-network",
   "/vendors/apply",
@@ -40,13 +36,12 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const dynamic = [
+        const dynamic: string[] = [
           ...useCases.map((x) => `/ai-in-action/${x.slug}`),
           ...stories.map((x) => `/stories/${x.slug}`),
           ...fieldGuides.map((x) => `/field-guides/${x.slug}`),
           ...insights.map((x) => `/insights/${x.slug}`),
           ...events.map((x) => `/events/${x.slug}`),
-          ...signalIssues.map((x) => `/signal/${x.slug}`),
         ];
         const all = [...staticPaths, ...dynamic];
         const urls = all
