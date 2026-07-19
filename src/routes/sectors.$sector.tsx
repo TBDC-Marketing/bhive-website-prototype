@@ -54,11 +54,11 @@ const bySector: Record<string, { name: string; problem: string; pressures: strin
 
 export const Route = createFileRoute("/sectors/$sector")({
   loader: ({ params }) => bySector[params.sector] ?? bySector.manufacturing,
-  head: ({ loaderData }) => (loaderData ? ({
+  head: ({ loaderData }) => ({
     meta: [
-      { title: `Practical AI for ${loaderData.name} businesses — BNext AI` },
-      { name: "description", content: `A real ${loaderData.name.toLowerCase()} problem, without the expensive wrong turn.` },
-      { property: "og:title", content: `BNext AI · ${loaderData.name}` },
+      { title: `Practical AI for ${loaderData!.name} businesses — BNext AI` },
+      { name: "description", content: `A real ${loaderData!.name.toLowerCase()} problem, without the expensive wrong turn.` },
+      { property: "og:title", content: `BNext AI · ${loaderData!.name}` },
     ],
   }),
   component: SectorPage,

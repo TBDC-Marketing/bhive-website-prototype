@@ -22,10 +22,10 @@ const campaigns: Record<string, { headline: string; sub: string; audience: strin
 
 export const Route = createFileRoute("/campaign/$campaign")({
   loader: ({ params }) => campaigns[params.campaign] ?? campaigns["first-look"],
-  head: ({ loaderData }) => (loaderData ? ({
+  head: ({ loaderData }) => ({
     meta: [
-      { title: `${loaderData.headline} — BNext AI` },
-      { name: "description", content: loaderData.sub },
+      { title: `${loaderData!.headline} — BNext AI` },
+      { name: "description", content: loaderData!.sub },
       { name: "robots", content: "noindex" },
     ],
   }),
