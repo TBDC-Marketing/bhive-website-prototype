@@ -56,11 +56,11 @@ function InsightDetail() {
         <article className="mt-12 max-w-3xl space-y-8 text-lg leading-relaxed text-muted-foreground">
           <div>
             <Eyebrow>The commonly held view</Eyebrow>
-            <p className="mt-3">Most conversations about AI in the enterprise assume the constraint is the model. Newer, larger, faster. But the operators actually using AI on real work see a different constraint: the workflow, the evidence, and the owner.</p>
+            <p className="mt-3">Most AI conversations assume the constraint is the model: newer, larger, faster. Operators using AI on real work see a different constraint: the workflow, the evidence, and the owner.</p>
           </div>
           <div>
             <Eyebrow>What operators are actually seeing</Eyebrow>
-            <p className="mt-3">Adoption follows the same three questions every time: Is the workflow worth changing? Is the result checkable? Is someone accountable when it changes?</p>
+            <p className="mt-3">Adoption turns on three questions. Is the workflow worth changing? Is the result checkable? Is someone accountable?</p>
           </div>
           <div>
             <Eyebrow>The decision this creates</Eyebrow>
@@ -68,14 +68,14 @@ function InsightDetail() {
           </div>
           <div className="rounded-sm border border-honey bg-honey-soft p-6 text-ink">
             <p className="eyebrow text-honey-deep">The operating implication</p>
-            <p className="mt-3 font-display text-xl">A leader can act on this by naming one workflow, one owner, and one review date this week.</p>
+            <p className="mt-3 font-display text-xl">Name one workflow, one owner, and one review date this week.</p>
           </div>
         </article>
       </Section>
 
       <Section bg="honey">
         <h2 className="max-w-4xl font-display text-4xl md:text-5xl">
-          If your experiments now affect other people, sensitive data, or consequential work, it is time to give them an owner and a route.
+          If your experiments now touch other people, sensitive data, or consequential work, give them an owner and a route.
         </h2>
         <div className="mt-10 flex flex-wrap gap-3">
           <CTAButton to="/field-guides/experiment-to-value">Use the Experiment-to-Value Checklist</CTAButton>

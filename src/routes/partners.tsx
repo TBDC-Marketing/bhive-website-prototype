@@ -27,7 +27,7 @@ function PartnersPage() {
       <PageHero
         eyebrow="Partners"
         title={<>Help the right business find the <span className="signal-underline">right starting point.</span></>}
-        lede="BNext AI works with trusted organizations across Peel to identify businesses, reduce barriers, and connect practical AI adoption to the communities it should serve."
+        lede="BNext AI works with trusted Peel organizations to find businesses, reduce barriers, and reach the communities the program should serve."
         ctas={<><CTAButton to="#become">Become a referral partner</CTAButton><CTAButton to="#refer" variant="ghost">Refer a business</CTAButton></>}
       />
 
@@ -35,10 +35,10 @@ function PartnersPage() {
         <Eyebrow>Ways to work together</Eyebrow>
         <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {[
-            ["Refer", "Send an eligible business through a partner-specific route with clear consent and source tracking."],
-            ["Host", "Bring a clinic, briefing, or workflow session to a member community."],
-            ["Contribute expertise", "Support a defined program gate without promoting a predetermined solution."],
-            ["Reach communities", "Co-create relevant language and sector pathways with trusted local organizations."],
+            ["Refer", "Send an eligible business through a tracked partner route, with consent."],
+            ["Host", "Bring a clinic or briefing to a member community."],
+            ["Contribute expertise", "Support a program gate without promoting a predetermined solution."],
+            ["Reach communities", "Co-create language and sector pathways with trusted local organizations."],
             ["Share evidence", "Help publish responsible lessons from adoption."],
           ].map(([k, v]) => (
             <div key={k} className="rounded-md border border-border bg-card p-6">
@@ -71,7 +71,7 @@ function PartnersPage() {
           })}
         </div>
         <p className="mt-10 max-w-3xl text-sm text-muted-foreground">
-          Neutrality rule: Referral and ecosystem partnerships do not buy influence over client technology decisions. Sponsorship, referral, delivery, and vendor roles must be disclosed and separated.
+          Neutrality rule: partnerships do not buy influence over client technology decisions. Sponsorship, referral, delivery, and vendor roles are disclosed and separated.
         </p>
       </Section>
 
@@ -80,7 +80,7 @@ function PartnersPage() {
           <div>
             <Eyebrow>Become a partner</Eyebrow>
             <h2 className="mt-4 font-display text-4xl">Tell us who you serve.</h2>
-            <p className="mt-4 text-muted-foreground">We will respond with a partner brief, eligibility criteria, and a trackable route for your community.</p>
+            <p className="mt-4 text-muted-foreground">We respond with a partner brief, eligibility criteria, and a trackable route for your community.</p>
           </div>
           {sent ? (
             <div className="rounded-md border border-border bg-card p-8">

@@ -6,7 +6,7 @@ export const Route = createFileRoute("/stories/")({
   head: () => ({
     meta: [
       { title: "Client stories · BNext AI" },
-      { name: "description", content: "Real businesses. Working AI. Measured progress. The problem, the route, the evidence, and what happened next." },
+      { name: "description", content: "Real businesses. Working AI. Measured progress." },
       { property: "og:title", content: "Client stories — BNext AI" },
       { property: "og:description", content: "Proof standards over promotional claims." },
     ],
@@ -31,7 +31,7 @@ function StoriesIndex() {
               The first BNext AI stories are being built now.
             </p>
             <p className="mt-4 max-w-3xl text-muted-foreground">
-              We will publish the workflow, evidence, and result after the participant has reviewed and approved the account. Until then, explore the method and representative use cases.
+              We publish the workflow, evidence, and result once the participant approves the account. Until then, explore the method and use cases.
             </p>
             <div className="mt-6"><CTAButton to="/ai-in-action">Explore AI in action</CTAButton></div>
           </div>
@@ -39,14 +39,14 @@ function StoriesIndex() {
 
         <div className="mt-16">
           <Eyebrow>Proof standards</Eyebrow>
-          <p className="mt-4 max-w-3xl text-lg text-muted-foreground">Every published result should show:</p>
+          <p className="mt-4 max-w-3xl text-lg text-muted-foreground">Every published result shows:</p>
           <ul className="mt-6 grid gap-3 md:grid-cols-2">
             {[
               "what changed;",
               "baseline and comparison period;",
               "sample size or evidence source;",
               "owner of the measure;",
-              "whether the result is observed, estimated, or projected;",
+              "observed, estimated, or projected;",
               "review date.",
             ].map((s) => (
               <li key={s} className="rounded-sm border border-ink/10 bg-muted p-4 text-sm">{s}</li>

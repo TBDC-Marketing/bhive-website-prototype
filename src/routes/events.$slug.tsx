@@ -74,7 +74,7 @@ function EventDetail() {
               <div>
                 <p className="eyebrow text-honey-deep">This event has ended</p>
                 <p className="mt-3 text-sm text-muted-foreground">
-                  Registration is closed. Reach out if you'd like notes or to hear about the next session.
+                  Registration is closed. Contact us for notes or the next session.
                 </p>
                 <div className="mt-4">
                   <CTAButton to="/contact" variant="ghost">Contact the program</CTAButton>

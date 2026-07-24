@@ -24,7 +24,7 @@ function VendorApply() {
       <PageHero
         eyebrow="Vendor application"
         title={<>Bring evidence. Respect the brief. <span className="signal-underline">Earn the match.</span></>}
-        lede="The BNext vendor network connects qualified providers to defined client requirements. It is not a directory, paid placement, or open sales channel."
+        lede="The network connects qualified providers to defined client requirements. It is not a directory, paid placement, or open sales channel."
       />
 
       <Section bg="paper">
@@ -33,20 +33,20 @@ function VendorApply() {
             <Eyebrow>Requirements</Eyebrow>
             <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
               {[
-                "Legal entity, insurance, and service capacity appropriate to the engagement.",
+                "Legal entity, insurance, and capacity for the engagement.",
                 "Clear product or service scope.",
-                "Transparent pricing model and implementation assumptions.",
-                "Data handling, security, privacy, hosting, and subprocessors disclosed.",
+                "Transparent pricing and implementation assumptions.",
+                "Data handling, security, hosting, and subprocessors disclosed.",
                 "Referenceable work or credible product evidence.",
                 "Support, change, incident, and offboarding process.",
-                "Willingness to work from client-owned requirements.",
-                "Conflict disclosure and agreement to non-solicitation rules.",
+                "Work from client-owned requirements.",
+                "Conflict disclosure and non-solicitation rules.",
               ].map((r) => <li key={r} className="flex gap-2"><span className="text-honey-deep">·</span>{r}</li>)}
             </ul>
 
             <p className="mt-8 text-xs uppercase tracking-widest text-honey-deep">Process</p>
-            <p className="mt-2 text-sm text-ink">Submit → Completeness review → Capability/evidence review → Interview or demo → Conditional approval → Match-specific diligence</p>
-            <p className="mt-4 text-xs text-muted-foreground">Network acceptance does not guarantee referrals. Every match remains requirements-based.</p>
+            <p className="mt-2 text-sm text-ink">Submit → Completeness review → Capability review → Interview or demo → Conditional approval → Match-specific diligence</p>
+            <p className="mt-4 text-xs text-muted-foreground">Acceptance does not guarantee referrals. Every match is requirements-based.</p>
           </div>
 
           {sent ? (
@@ -75,7 +75,7 @@ function VendorApply() {
               <TextArea label="Pricing model and implementation assumptions" />
               <TextArea label="Evidence and references" />
               <TextArea label="Conflicts, partnerships, and declarations" />
-              <FormNote>Do not paste customer data or credentials. Upload evidence during match-specific diligence.</FormNote>
+              <FormNote>Do not paste customer data or credentials. Upload evidence during diligence.</FormNote>
               <button className="w-full rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper hover:bg-honey-deep hover:text-ink">Submit application</button>
             </form>
           )}

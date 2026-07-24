@@ -48,17 +48,17 @@ function GuideDetail() {
           <div>
             <Eyebrow>Use this when</Eyebrow>
             <ul className="mt-4 space-y-3 text-lg text-muted-foreground">
-              <li>You are choosing between multiple candidate workflows.</li>
-              <li>An experiment now affects other people, data, or decisions.</li>
-              <li>Leadership needs a defendable answer this quarter.</li>
+              <li>you are choosing between candidate workflows;</li>
+              <li>an experiment now affects other people, data, or decisions;</li>
+              <li>leadership needs a defendable answer this quarter.</li>
             </ul>
           </div>
           <div>
             <Eyebrow>Do not use this to</Eyebrow>
             <ul className="mt-4 space-y-3 text-lg text-muted-foreground">
-              <li>Replace a security or legal review.</li>
-              <li>Bypass a live procurement process.</li>
-              <li>Score employees or vendors.</li>
+              <li>replace a security or legal review;</li>
+              <li>bypass a live procurement process;</li>
+              <li>score employees or vendors.</li>
             </ul>
           </div>
         </div>
@@ -66,7 +66,7 @@ function GuideDetail() {
         <div className="mt-16 rounded-sm border border-ink/10 bg-muted p-8">
           <Eyebrow>The tool</Eyebrow>
           <p className="mt-4 text-muted-foreground">
-            The interactive worksheet, checklist, or playbook appears here in Phase C. Preview the structure below.
+            The interactive version arrives in Phase C. The structure:
           </p>
           <ol className="mt-8 space-y-4">
             {["Name the workflow and owner.", "Identify the input, output, and error impact.", "Decide the smallest credible test.", "Assign the review date."].map((s, i) => (

@@ -14,12 +14,12 @@ export const Route = createFileRoute("/start/experimenting")({
 });
 
 const route = [
-  ["Inventory the experiments", "People, tools, workflows, data, and hidden workarounds."],
-  ["Find the strongest case", "Compare value, frequency, feasibility, risk, and sponsor readiness."],
-  ["Validate the workflow", "Test representative examples and document exceptions."],
-  ["Model the economics", "Baseline cost, expected benefit, implementation cost, and sensitivity."],
-  ["Choose the route", "Buy, build, reuse, pause, or stop."],
-  ["Sign the plan", "Owner, budget, timeline, next gate, and evidence still required."],
+  "Inventory the experiments: people, tools, workflows, data.",
+  "Find the strongest case.",
+  "Validate the workflow on real examples.",
+  "Model the economics.",
+  "Choose: buy, build, reuse, pause, or stop.",
+  "Sign the plan: owner, budget, timeline, next gate.",
 ];
 
 function Experimenting() {
@@ -28,7 +28,7 @@ function Experimenting() {
       <PageHero
         eyebrow="Experimenting with AI"
         title={<>Stop experimenting. <span className="signal-underline">Choose the use case that pays.</span></>}
-        lede="Inventory what is already happening, validate one high-value workflow, model the economics, and sign a route your team can act on."
+        lede="Inventory what is happening, validate one workflow, and sign a route your team can act on."
         ctas={<>
           <CTAButton to="/contact">Apply for the validation route</CTAButton>
           <CTAButton to="/field-guides/roi-model" variant="ghost">See the business-case method</CTAButton>
@@ -44,11 +44,10 @@ function Experimenting() {
           <div className="md:col-span-7">
             <ul className="space-y-3 text-lg">
               {[
-                "staff use several AI tools but adoption is inconsistent;",
-                "there is enthusiasm without a shared measure of value;",
-                "leaders are concerned about shadow AI, privacy, or output quality;",
-                "multiple ideas are competing for limited time and budget;",
-                "you need to decide whether to buy, build, reuse, pause, or stop.",
+                "staff use several AI tools, adoption is inconsistent;",
+                "there is enthusiasm but no shared measure of value;",
+                "shadow AI, privacy, or output quality worry you;",
+                "too many ideas compete for the time and budget.",
               ].map((s) => (<li key={s} className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-honey" />{s}</li>))}
             </ul>
           </div>
@@ -59,12 +58,11 @@ function Experimenting() {
         <Reveal><Eyebrow>The route</Eyebrow>
         <h2 className="mt-4 font-display text-4xl md:text-5xl">Six moves to a signed business case.</h2></Reveal>
         <ol className="mt-12 grid gap-4 md:grid-cols-2">
-          {route.map(([t, b], i) => (
+          {route.map((t, i) => (
             <Reveal key={t} delay={i * 0.03}>
               <li className="rounded-sm border border-ink/10 bg-paper p-6">
                 <p className="font-display text-3xl text-honey-deep">{String(i + 1).padStart(2, "0")}</p>
                 <p className="mt-3 font-display text-2xl">{t}</p>
-                <p className="mt-3 text-muted-foreground">{b}</p>
               </li>
             </Reveal>
           ))}
@@ -78,7 +76,7 @@ function Experimenting() {
             A good idea does not move forward because the demo was impressive.
           </h2>
           <p className="mt-6 max-w-2xl text-lg text-paper/75">
-            It moves because the workflow matters, the evidence is adequate, the risk is understood, and an owner is accountable.
+            It moves because the workflow matters, the evidence holds, and an owner is accountable.
           </p>
         </Reveal>
       </Section>

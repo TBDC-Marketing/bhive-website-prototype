@@ -45,7 +45,7 @@ function ResourcesHub() {
             Everything BNext AI publishes, in <span className="signal-underline">one place.</span>
           </>
         }
-        lede="Real workflows we've seen work. Short guides for the decisions owners have to make. Field notes from the program. Events you can walk into."
+        lede="Real workflows we have seen work. Short guides for the decisions owners have to make. Field notes from the program. Events you can walk into."
         ctas={
           <>
             <CTAButton to="/start">Find your starting point</CTAButton>

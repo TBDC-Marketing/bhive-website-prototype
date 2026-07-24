@@ -14,15 +14,15 @@ export const partners: Partner[] = [
 ];
 
 export const faq = [
-  { q: "Is the program really free?", a: "The program is free to eligible participating businesses because it is supported by Government of Canada funding. Your business contributes the time of the people needed to make and test the decision. Any later technology, vendor, or implementation spend requires your approval and is not implied by participation." },
-  { q: "Do I need technical staff?", a: "No for the New-to-AI route. More complex implementation cases should include the person responsible for IT, systems, data, or security—even if that role is external." },
-  { q: "Do I need an AI idea already?", a: "No. Bring a business problem, repetitive workflow, or operating constraint. BNext helps determine whether AI belongs in the answer." },
-  { q: "Will BNext build software for us?", a: "The route depends on readiness and scope. Some participants build a controlled first workflow; implementation-ready businesses may develop or evaluate a production-candidate proof. Participation is not a promise of free custom software." },
-  { q: "Will you recommend a vendor?", a: "Where a vendor is appropriate, BNext can help define requirements and evaluate suitable providers through a neutral process. BNext does not earn commissions from the selection." },
-  { q: "What if the right answer is not to use AI?", a: "Then stopping is a useful result. The program is designed to improve the decision, not force a purchase or project." },
-  { q: "What will my business leave with?", a: "It depends on your starting point: a verified first workflow, a validated business case and implementation route, or a tested production candidate with a governed rollout plan." },
-  { q: "How much time does it take?", a: "Current routes are designed around approximately 14, 20, or 30 guided hours, with practical work between sessions and follow-through for implementation cases." },
-  { q: "Is it in person?", a: "Core delivery is designed around in-person work in Brampton, with the exact mix of sessions, clinics, and follow-up listed for each cohort." },
-  { q: "What happens after the program?", a: "The plan includes a named owner and review points. Alumni may return to relevant clinics or later modules where capacity and program rules allow." },
-  { q: "How is our information handled?", a: "BNext collects only the information required for intake, delivery, reporting, and follow-up. Sensitive operational or client data should not be entered into public website forms." },
+  { q: "Is the program really free?", a: "Yes, to eligible businesses, through Government of Canada funding. You contribute your people's time. Any later technology spend needs your approval." },
+  { q: "Do I need technical staff?", a: "Not for the New-to-AI route. Implementation cases should include whoever handles IT, data, or security, even if that person is external." },
+  { q: "Do I need an AI idea already?", a: "No. Bring a business problem or repetitive workflow. BNext helps decide whether AI belongs in the answer." },
+  { q: "Will BNext build software for us?", a: "Depends on readiness and scope. Some participants build a controlled first workflow; implementation-ready businesses may test a production candidate. Participation is not free custom software." },
+  { q: "Will you recommend a vendor?", a: "Where a vendor fits, BNext helps define requirements and evaluate providers through a neutral process. We earn no commissions." },
+  { q: "What if the right answer is not to use AI?", a: "Then stopping is a useful result. The program improves the decision; it does not force a purchase." },
+  { q: "What will my business leave with?", a: "Depends on your route: a verified first workflow, a validated business case, or a tested production candidate with a rollout plan." },
+  { q: "How much time does it take?", a: "About 14, 20, or 30 guided hours by route, plus practical work between sessions." },
+  { q: "Is it in person?", a: "Core delivery is in person in Brampton. The exact mix is listed for each cohort." },
+  { q: "What happens after the program?", a: "Your plan names an owner and review points. Alumni may return to clinics where capacity allows." },
+  { q: "How is our information handled?", a: "We collect only what intake, delivery, and reporting require. Do not enter sensitive operational data into website forms." },
 ];

@@ -21,7 +21,7 @@ function GuidesIndex() {
       <PageHero
         eyebrow="Field guides"
         title={<>Use the same tools <span className="signal-underline">we use inside the program.</span></>}
-        lede="Short, practical guides for choosing a use case, testing value, managing risk, and moving from experiment to adoption."
+        lede="Short guides for choosing a use case, testing value, managing risk, and moving from experiment to adoption."
       />
 
       <Section bg="paper">

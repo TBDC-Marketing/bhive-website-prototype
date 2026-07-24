@@ -14,18 +14,18 @@ export const Route = createFileRoute("/about")({
 });
 
 const timeline = [
-  { year: "2022", title: "The doors open", body: "The BHive opens in downtown Brampton in partnership with the City of Brampton: a physical place for founders to learn, build, meet experts, and become part of the local business community." },
-  { year: "2022–2025", title: "Founders take root", body: "Brampton Next and the Global Entrepreneur Incubation Program support international and newcomer entrepreneurs through practical education, direct guidance, peer accountability, settlement support, and trusted networks." },
-  { year: "2026", title: "Same hive, new mission", body: "The BHive turns that engine toward established businesses. With BNext AI, the organization applies its proven playbook to AI adoption." },
+  { year: "2022", title: "The doors open", body: "The BHive opens in downtown Brampton with the City of Brampton: a place for founders to learn, build, and join the local business community." },
+  { year: "2022–2025", title: "Founders take root", body: "Brampton Next and the Global Entrepreneur Incubation Program guide international and newcomer entrepreneurs with practical education, peer accountability, and trusted networks." },
+  { year: "2026", title: "Same hive, new mission", body: "The BHive turns that engine toward established businesses. BNext AI applies the proven playbook to AI adoption." },
 ];
 
 const carried = [
   "Practical education over theory",
   "Direct guidance that respects the owner's time",
-  "Peer accountability and a community that keeps showing up",
-  "Trusted networks, because no business builds alone",
-  "Brampton as home base, with the City as a founding partner",
-  "A bias toward tangible progress rather than polished promises",
+  "Peer accountability",
+  "Trusted networks",
+  "Brampton as home base, the City as founding partner",
+  "Tangible progress over polished promises",
 ];
 
 function About() {
@@ -34,7 +34,7 @@ function About() {
       <PageHero
         eyebrow="About The BHive"
         title={<>A hive is where <span className="signal-underline">work gets done.</span></>}
-        lede="The BHive is Brampton's business accelerator and innovation hub—built with the City of Brampton in 2022, and home today to BNext AI, our signature program helping established Ontario businesses put AI to work."
+        lede="The BHive is Brampton's business accelerator and innovation hub, built with the City of Brampton in 2022. Today it is home to BNext AI, our signature program helping established Ontario businesses put AI to work."
         ctas={<>
           <CTAButton to="/bnext-ai">Explore BNext AI</CTAButton>
           <CTAButton to="/contact" variant="ghost">Meet the team</CTAButton>
@@ -45,25 +45,22 @@ function About() {
         <Reveal>
           <Eyebrow>What we believe</Eyebrow>
           <h2 className="mt-4 max-w-4xl font-display text-4xl md:text-5xl">
-            Practical first. Proof over promises. The business owner stays in charge.
+            Practical first. Proof over promises. The owner stays in charge.
           </h2>
           <p className="mt-8 max-w-3xl text-lg text-muted-foreground">
-            The businesses that keep Ontario running deserve the same quality of guidance on AI and growth that large companies buy by the hour. The BHive creates a place where an owner can get straight answers, a real plan, and trusted introductions—without the hype and without a vendor agenda.
+            The businesses that keep Ontario running deserve the guidance large companies buy by the hour. The BHive is where an owner gets straight answers, a real plan, and trusted introductions. No hype. No vendor agenda.
           </p>
         </Reveal>
       </Section>
 
       <Section bg="ink">
         <Reveal>
-          <p className="eyebrow text-honey">Our signature program now · BNext AI</p>
+          <p className="eyebrow text-honey">Our signature program · BNext AI</p>
           <h2 className="mt-6 max-w-4xl font-display text-5xl md:text-6xl text-paper">
             From AI curiosity to <span className="text-honey">AI working in your business.</span>
           </h2>
           <p className="mt-8 max-w-3xl text-lg text-paper/75">
-            AI has become easier to try and harder to evaluate. BNext AI guides owners and operating teams from one valuable workflow to an evidence-backed, governed implementation route.
-          </p>
-          <p className="mt-6 max-w-3xl text-paper/60">
-            <strong className="text-honey">What makes the program different:</strong> practical work · vendor neutrality · real business artifacts · named owners · value review after the demo.
+            AI is easier to try and harder to evaluate. BNext AI guides owners from one valuable workflow to a governed implementation route.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <CTAButton to="/bnext-ai" variant="signal">See the BNext AI program</CTAButton>
@@ -103,7 +100,7 @@ function About() {
         <Reveal>
           <Eyebrow>Legacy</Eyebrow>
           <p className="mt-4 max-w-3xl text-lg text-muted-foreground">
-            Since 2022, The BHive has supported entrepreneurs and early-stage businesses through practical education, direct guidance, and trusted networks. That community — founders, mentors, and alumni — is part of the ground BNext AI now builds on. Program figures will be published once reconciled with our leadership team.
+            The founders, mentors, and alumni The BHive has supported since 2022 are the ground BNext AI builds on. Program figures will be published once reconciled with leadership.
           </p>
         </Reveal>
       </Section>
@@ -130,7 +127,7 @@ function About() {
             Once part of the hive, always part of the hive.
           </h2>
           <p className="mt-8 max-w-2xl text-lg text-paper/75">
-            BHive founder alumni remain part of this community—as mentors, providers, collaborators, and friends of the organization.
+            BHive alumni remain part of this community, as mentors, providers, and collaborators.
           </p>
           <div className="mt-10">
             <CTAButton to="/contact" variant="signal">Reconnect with The BHive</CTAButton>

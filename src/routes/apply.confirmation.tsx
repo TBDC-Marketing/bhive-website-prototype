@@ -18,7 +18,7 @@ function Confirmation() {
       <PageHero
         eyebrow="Thank you"
         title={<>We'll be in touch.</>}
-        lede="Applications for the next cohort open soon. Until submissions are live, please email your interest to bnextai@thebhive.ca and a BNext intake owner will respond within five business days."
+        lede="Applications for the next cohort open soon. Until then, email bnextai@thebhive.ca and an intake owner will respond within five business days."
         ctas={
           <>
             <CTAButton to="/how-it-works">See what happens next</CTAButton>
@@ -33,7 +33,7 @@ function Confirmation() {
             <a href="mailto:bnextai@thebhive.ca" className="underline">bnextai@thebhive.ca</a>
           </p>
           <p className="mt-4 text-sm text-muted-foreground">
-            Include your business name, sector, and the workflow you'd like to change first.
+            Include your business name, sector, and the workflow you would change first.
           </p>
           <p className="mt-6 text-xs text-muted-foreground">
             <Link to="/apply" className="underline">Return to the interest form</Link>

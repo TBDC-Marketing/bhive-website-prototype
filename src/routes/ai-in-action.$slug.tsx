@@ -56,19 +56,19 @@ function UseCaseDetail() {
           <Reveal>
             <Eyebrow>The current workflow</Eyebrow>
             <p className="mt-4 text-lg text-muted-foreground">
-              Describe the trigger, steps, people, delays, rework, and systems today. Do not begin with the AI feature.
+              Describe today's trigger, steps, people, delays, and systems. Do not start with the AI feature.
             </p>
           </Reveal>
           <Reveal delay={0.05}>
             <Eyebrow>Where AI helps</Eyebrow>
             <p className="mt-4 text-lg text-muted-foreground">
-              The exact task AI performs — draft, find, summarize, classify, predict, recommend, or act. What stays with the person is stated.
+              Name the task AI does (draft, find, summarize, classify, predict, recommend, or act) and what stays with a person.
             </p>
           </Reveal>
           <Reveal delay={0.1}>
             <Eyebrow>What good looks like</Eyebrow>
             <p className="mt-4 text-lg text-muted-foreground">
-              Three to five acceptance criteria including quality and error tolerance, not only speed.
+              Three to five acceptance criteria, covering quality and error tolerance, not just speed.
             </p>
           </Reveal>
           <Reveal delay={0.15}>
@@ -78,13 +78,13 @@ function UseCaseDetail() {
           <Reveal delay={0.2}>
             <Eyebrow>Data and risk questions</Eyebrow>
             <p className="mt-4 text-lg text-muted-foreground">
-              What data enters? Who can see it? What happens when the output is wrong? Can it be reversed? Who handles the exception?
+              What data enters? Who sees it? What happens when the output is wrong? Can it be reversed? Who owns the exception?
             </p>
           </Reveal>
           <Reveal delay={0.25}>
             <Eyebrow>The smallest credible test</Eyebrow>
             <p className="mt-4 text-lg text-muted-foreground">
-              Define a representative sample, time box, owner, tool boundary, and pass/fail decision.
+              A representative sample, a time box, an owner, a tool boundary, and a pass/fail decision.
             </p>
           </Reveal>
         </div>

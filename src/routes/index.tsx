@@ -18,13 +18,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "From AI curiosity to AI working in your business. The BHive's BNext AI program helps established Peel businesses adopt AI with evidence.",
+          "From AI curiosity to AI working in your business. BNext AI helps established Peel businesses adopt AI. Free, in person, vendor-neutral.",
       },
       { property: "og:title", content: "The BHive — Brampton's business accelerator, home of BNext AI" },
       {
         property: "og:description",
         content:
-          "From AI curiosity to AI working in your business. The BHive's BNext AI program helps established Peel businesses adopt AI with evidence.",
+          "From AI curiosity to AI working in your business. BNext AI helps established Peel businesses adopt AI. Free, in person, vendor-neutral.",
       },
       { property: "og:url", content: "https://bhive-bnextai-preview.lovable.app/" },
     ],
@@ -73,35 +73,33 @@ export const Route = createFileRoute("/")({
 const routes = [
   {
     tag: "New to AI",
-    body: "You know AI matters. You do not yet know where it belongs in the business.",
-    outcome: "One useful, low-risk workflow in use.",
+    body: "You know AI matters, not where it fits.",
+    outcome: "One low-risk workflow in use.",
     cta: "See the first-win route",
     to: "/start/new-to-ai" as const,
   },
   {
     tag: "Experimenting",
-    body: "Your team has tried tools. The value is still hard to prove.",
-    outcome: "One validated use case and a signed business case.",
+    body: "Tools in use, value unproven.",
+    outcome: "A validated use case and signed business case.",
     cta: "Build the business case",
     to: "/start/experimenting" as const,
   },
   {
     tag: "Ready to implement",
-    body: "You have urgency, a real problem, and perhaps budget. You need the right route and partner.",
-    outcome: "A tested production candidate and governed rollout plan.",
+    body: "A real problem and urgency.",
+    outcome: "A tested production candidate and rollout plan.",
     cta: "Talk through the implementation",
     to: "/start/ready-to-implement" as const,
   },
 ];
 
 const artifacts = [
-  "A plain-language use-case brief",
-  "A workflow and data map",
-  "A value and feasibility score",
-  "A risk and governance record",
-  "A buy/build/stop decision",
-  "A tested workflow or proof",
-  "A named owner and 30/60/90-day plan",
+  "Use-case brief and workflow map",
+  "Value and risk scores",
+  "Buy/build/stop decision",
+  "Tested workflow or proof",
+  "Named owner and 30/60/90-day plan",
 ];
 
 const stages = ["Orient", "Define", "Route", "Prepare", "Prove", "Run"];
@@ -118,9 +116,8 @@ function HomePage() {
         }
         lede={
           <>
-            BNext AI is The BHive's signature program for established Peel businesses.
-            Choose one valuable workflow, test the case and the risk, and leave with
-            evidence, ownership, and a practical implementation plan.
+            A guided program for established Peel businesses. Pick one workflow, test it
+            with evidence, and leave with a plan you own.
           </>
         }
         ctas={
@@ -133,7 +130,7 @@ function HomePage() {
         }
         aside={
           <div className="rounded-sm border border-ink bg-honey p-8">
-            <p className="eyebrow text-ink">Free · Government-funded · Vendor-neutral</p>
+            <p className="eyebrow text-ink">Free · In person in Brampton · Vendor-neutral</p>
             <p className="mt-6 font-display text-3xl leading-tight text-ink">
               Delivered in person in Brampton for established Ontario businesses.
             </p>
@@ -149,7 +146,7 @@ function HomePage() {
         <Reveal>
           <Eyebrow>Three routes · Start where you are</Eyebrow>
           <h2 className="mt-4 max-w-4xl font-display text-4xl leading-[1.05] md:text-6xl">
-            Pick the door that matches how far along you are.
+            Pick the route that fits today.
           </h2>
         </Reveal>
         <div className="mt-14 grid gap-6 md:grid-cols-3">
@@ -190,16 +187,15 @@ function HomePage() {
         eyebrow="The method"
         title={
           <>
-            Put AI to work. <span className="text-honey">Start with the right move.</span>
+            Six stages. <span className="text-honey">One clear route.</span>
           </>
         }
       >
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-7">
             <p className="max-w-xl text-lg leading-relaxed text-paper/75">
-              AI is easy to try and hard to evaluate. BNext AI gives owners and operating
-              teams a clear six-stage route: from orienting on the opportunity to running
-              a governed workflow in production.
+              AI is easy to try, hard to judge. Six stages take you from first look to a
+              governed workflow.
             </p>
             <div className="mt-8">
               <Link
@@ -234,18 +230,18 @@ function HomePage() {
         <Reveal>
           <Eyebrow>Why this matters</Eyebrow>
           <h2 className="mt-4 max-w-3xl font-display text-4xl leading-tight md:text-5xl">
-            Most small businesses know AI matters. Few have a route to make it real.
+            Most businesses know AI matters. Few have a route.
           </h2>
         </Reveal>
         <div className="mt-14">
           <MetricGrid
             items={[
-              { value: "72%", label: "of Canadian SMBs say AI will affect their business within 3 years." },
-              { value: "1 in 4", label: "have moved past experimentation into a production workflow." },
+              { value: "72%", label: "of Canadian SMBs expect AI to affect their business within 3 years." },
+              { value: "1 in 4", label: "have moved past experimenting into a production workflow." },
               { value: "6 stages", label: "from AI curiosity to a governed workflow in your business." },
               { value: "Free", label: "to eligible Ontario businesses; delivered in person in Brampton." },
             ]}
-            source="BNext AI intake conversations, 2024–2025 · Statistics Canada CSBO"
+            source="BNext AI intake · Statistics Canada CSBO"
           />
         </div>
       </Section>
@@ -292,7 +288,7 @@ function HomePage() {
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <Reveal>
-              <Eyebrow>Artifacts</Eyebrow>
+              <Eyebrow>What you leave with</Eyebrow>
               <h2 className="mt-4 font-display text-4xl leading-[1.05] md:text-6xl">
                 Leave with work your business can use.
               </h2>
@@ -325,11 +321,9 @@ function HomePage() {
         </Reveal>
         <Reveal delay={0.05}>
           <p className="mt-8 max-w-3xl text-lg leading-relaxed text-paper/75">
-            BNext AI is funded to help local businesses make better AI decisions. The
-            program is free to participating companies. The BHive does not earn vendor
-            commissions from a participant's technology decision, and a purchase is not
-            the program's measure of success. Sometimes the right answer is to build.
-            Sometimes it is to buy. Sometimes it is to stop.
+            Government-funded and free. We earn no vendor commissions; a purchase is not
+            our measure of success. Sometimes the answer is buy. Sometimes build.
+            Sometimes stop.
           </p>
         </Reveal>
       </Section>
@@ -343,8 +337,7 @@ function HomePage() {
         </Reveal>
         <Reveal delay={0.05}>
           <p className="mt-8 max-w-2xl text-lg">
-            Answer a few practical questions. BNext AI will show you the route that fits
-            your business now.
+            Answer five questions. Get your route.
           </p>
         </Reveal>
         <Reveal delay={0.1}>

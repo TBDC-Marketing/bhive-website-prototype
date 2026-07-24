@@ -7,9 +7,9 @@ export const Route = createFileRoute("/apply/")({
   head: () => ({
     meta: [
       { title: "Program Expression of Interest — BNext AI" },
-      { name: "description", content: "Start where you are. Tell us about the business problem, who owns it, and what you have tried." },
+      { name: "description", content: "Start where you are. Tell us the business problem, who owns it, and what you have tried." },
       { property: "og:title", content: "Express your interest in BNext AI" },
-      { property: "og:description", content: "About 6–8 minutes. Save and return." },
+      { property: "og:description", content: "About 6–8 minutes. Complete in one sitting; drafts are not saved." },
       { property: "og:url", content: "/apply" },
     ],
     links: [{ rel: "canonical", href: "/apply" }],
@@ -29,7 +29,7 @@ function ApplyPage() {
       <PageHero
         eyebrow="Express your interest"
         title={<>Start <span className="signal-underline">where you are.</span></>}
-        lede="Tell us about the business problem, who owns it, and what you have tried. If BNext is a fit, we will confirm the most useful route and next step."
+        lede="Tell us the business problem, who owns it, and what you have tried. If BNext is a fit, we will confirm your route and next step."
       />
 
       <Section bg="paper">
@@ -60,7 +60,7 @@ function ApplyPage() {
                 </li>
               ))}
             </ol>
-            <p className="mt-8 text-xs text-muted-foreground">≈ 6–8 minutes. Complete in one sitting — saved drafts aren't available yet.</p>
+            <p className="mt-8 text-xs text-muted-foreground">About 6–8 minutes. Complete in one sitting; drafts are not saved.</p>
           </aside>
 
           <form
@@ -100,7 +100,7 @@ function ApplyPage() {
                 <TextField label="Who does this work today?" />
                 <TextField label="How often does it happen?" />
                 <TextField label="How would you know it improved?" />
-                <FormNote>An estimate is fine. We use this to choose the right route, not to grade your business.</FormNote>
+                <FormNote>An estimate is fine. We use this to choose the route, not to grade your business.</FormNote>
               </div>
             )}
             {step === 3 && (

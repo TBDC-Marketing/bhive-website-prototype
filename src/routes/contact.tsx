@@ -6,7 +6,7 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact The BHive — BNext AI" },
-      { name: "description", content: "Program fit, partnership, accessibility, media, or vendor network — we will route it to the right person." },
+      { name: "description", content: "Program fit, partnership, accessibility, media, or vendor network. We route it to the right person." },
       { property: "og:title", content: "Contact The BHive" },
       { property: "og:description", content: "Ask the question behind the question." },
       { property: "og:url", content: "https://bhive-bnextai-preview.lovable.app/contact" },
@@ -38,11 +38,11 @@ export const Route = createFileRoute("/contact")({
 });
 
 const routes = [
-  ["Want to join the program?", "Start with the readiness check.", "/start"],
-  ["Already applied?", "Include your reference number below.", "/contact"],
-  ["Partnership or referral?", "Use the partner form below.", "/contact"],
-  ["Vendor application?", "Review the Vendor Network first.", "/contact"],
-  ["Media or general question?", "Use the contact form.", "/contact"],
+  ["Joining the program?", "Start with the readiness check.", "/start"],
+  ["Already applied?", "Include your reference number.", "/contact"],
+  ["Partnership or referral?", "Use the partner form.", "/contact"],
+  ["Vendor?", "Review the Vendor Network first.", "/contact"],
+  ["Media or general?", "Use the contact form.", "/contact"],
 ];
 
 function Contact() {
@@ -52,7 +52,7 @@ function Contact() {
       <PageHero
         eyebrow="Contact"
         title={<>Ask the question <span className="signal-underline">behind the question.</span></>}
-        lede="Program fit, partnership, accessibility, media, or vendor network — we will route it to the right person."
+        lede="Program fit, partnership, accessibility, media, or vendor network. We route it to the right person."
       />
 
       <Section bg="paper">

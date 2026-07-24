@@ -27,21 +27,21 @@ const doors: {
   {
     key: "new-to-ai",
     label: "We have not started.",
-    body: "We are curious, but no one owns a use case yet.",
+    body: "Curious, but no one owns a use case yet.",
     cta: "Show me the first-win route",
     to: "/start/new-to-ai",
   },
   {
     key: "experimenting",
     label: "We are experimenting.",
-    body: "People use AI, but we cannot prove ROI or choose what to scale.",
+    body: "People use AI; we cannot prove the value.",
     cta: "Show me the validation route",
     to: "/start/experimenting",
   },
   {
     key: "ready-to-implement",
     label: "We are ready to invest.",
-    body: "We have a problem, urgency, and decision-makers engaged.",
+    body: "A problem, urgency, and decision-makers engaged.",
     cta: "Show me the implementation route",
     to: "/start/ready-to-implement",
   },
@@ -66,7 +66,7 @@ function StartPage() {
       ? {
           key: "new-to-ai" as RouteKey,
           tag: "Start with one useful win.",
-          body: "You do not need a full AI strategy yet.",
+          body: "Not a full strategy. One workflow, changed safely, with a person in charge.",
           why: "Your answers suggest little AI use and no named owner yet — the highest-leverage move is one small, provable win.",
           to: "/start/new-to-ai" as const,
         }
@@ -74,14 +74,14 @@ function StartPage() {
       ? {
           key: "experimenting" as RouteKey,
           tag: "Turn experiments into a business case.",
-          body: "The opportunity is not more tools; it is one validated decision.",
+          body: "The opportunity is not more tools. It is one validated decision.",
           why: "You already have activity but not proof — the next move is a structured validation, not another pilot.",
           to: "/start/experimenting" as const,
         }
       : {
           key: "ready-to-implement" as RouteKey,
-          tag: "Prepare to implement.",
-          body: "Your next risk is moving quickly without the right acceptance criteria and controls.",
+          tag: "Move to a tested implementation.",
+          body: "You have signal, sponsor, and constraints. A tested proof beats another tool.",
           why: "You have urgency, budget, and data considerations — implementation risk is real; controls matter.",
           to: "/start/ready-to-implement" as const,
         };
@@ -102,7 +102,7 @@ function StartPage() {
       <PageHero
         eyebrow="Start here"
         title={<>You do not need to know your <span className="signal-underline">AI maturity score.</span></>}
-        lede="Tell us what is true in your business today. We will show you the most useful next move."
+        lede="Tell us what is true today. We will show you the next move."
       />
 
       <Section bg="paper">

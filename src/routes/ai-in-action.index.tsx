@@ -7,7 +7,7 @@ export const Route = createFileRoute("/ai-in-action/")({
   head: () => ({
     meta: [
       { title: "AI in action — Use-case library · BNext AI" },
-      { name: "description", content: "Browse practical workflows by function, sector, readiness, data sensitivity, and expected human role." },
+      { name: "description", content: "Browse practical workflows by function, starting point, and expected human role." },
       { property: "og:title", content: "AI in action" },
       { property: "og:description", content: "See what AI actually does inside a business like yours." },
     ],
@@ -30,7 +30,7 @@ function UseCaseLibrary() {
       <PageHero
         eyebrow="AI in action"
         title={<>See what AI actually does <span className="signal-underline">inside a business like yours.</span></>}
-        lede="Browse practical workflows by function, starting point, and expected human role."
+        lede="Browse practical workflows by function, starting point, and human role."
         ctas={<CTAButton to="/start">Find a use case like mine</CTAButton>}
       />
 
@@ -72,7 +72,7 @@ function UseCaseLibrary() {
               Do not begin with "Where can we use AI?"
             </p>
             <p className="mt-4 text-muted-foreground">
-              Begin with a workflow that is frequent, costly, slow, inconsistent, or hard to staff—and whose result can be checked.
+              Begin with a workflow that is frequent, costly, slow, or inconsistent, and whose result can be checked.
             </p>
           </div>
         </Reveal>

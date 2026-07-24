@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { CTAButton, Eyebrow, PageHero, Section } from "../components/site/primitives";
 
 const partners: Record<string, { name: string; why: string }> = {
-  "brampton-board-of-trade": { name: "Brampton Board of Trade", why: "The Board is connecting member businesses to practical AI adoption without an expensive wrong turn." },
-  "sheridan-college": { name: "Sheridan College", why: "Sheridan is referring alumni-run and Peel-region businesses ready for a first structured AI decision." },
+  "brampton-board-of-trade": { name: "Brampton Board of Trade", why: "Connecting member businesses to practical AI adoption without an expensive wrong turn." },
+  "sheridan-college": { name: "Sheridan College", why: "Referring alumni-run and Peel-region businesses ready for a first structured AI decision." },
 };
 
 export const Route = createFileRoute("/referral/$partner")({
@@ -49,7 +49,7 @@ function ReferralPage() {
       <Section bg="muted">
         <Eyebrow>What is shared and with whom</Eyebrow>
         <p className="mt-4 max-w-3xl text-muted-foreground">
-          Referral status is shared with {p.name} only with participant notice and consent. Unless otherwise agreed, {p.name} receives aggregate results—not named participant data.
+          Referral status is shared with {p.name} only with participant notice and consent. Unless otherwise agreed, {p.name} receives aggregate results, not named participant data.
         </p>
       </Section>
 

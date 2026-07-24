@@ -6,49 +6,49 @@ const bySector: Record<string, { name: string; problem: string; pressures: strin
     name: "Manufacturing",
     problem: "shift handovers, quote turnaround, and quality exceptions",
     pressures: [
-      "Skilled labour transitions and shift handovers that lose context.",
-      "Quote turnaround competing with production floor priorities.",
-      "Quality exceptions that surface too late to act on.",
+      "Shift handovers that lose context.",
+      "Quote turnaround competing with floor priorities.",
+      "Quality exceptions surfacing too late.",
     ],
     workflows: [
-      "Quote drafting from approved product and pricing rules.",
-      "Shift-handover summary and next-shift briefing.",
-      "Maintenance-note classification and recurring-issue summary.",
-      "Supplier document comparison.",
+      "Quote drafting from approved rules.",
+      "Shift-handover briefings.",
+      "Maintenance-note classification.",
+      "Supplier-document comparison.",
     ],
-    humanJudgement: ["Safety exceptions", "Customer-facing commitments", "Contract terms"],
+    humanJudgement: ["Safety exceptions", "Customer commitments", "Contract terms"],
   },
   logistics: {
     name: "Logistics & trucking",
     problem: "dispatch exceptions, invoice reconciliation, and driver communications",
     pressures: [
-      "Dispatch exceptions that arrive faster than a human can triage.",
-      "Invoice and rate confirmation reconciliation across many carriers.",
-      "Driver communications in multiple languages under time pressure.",
+      "Dispatch exceptions faster than a human can triage.",
+      "Rate-confirmation reconciliation across carriers.",
+      "Multilingual driver communication under time pressure.",
     ],
     workflows: [
-      "Order-exception detection and escalation.",
+      "Order-exception detection.",
       "Rate-confirmation reconciliation.",
-      "Multilingual driver-message drafting with human approval.",
-      "Meeting-notes to owner, deadline, and next action.",
+      "Multilingual driver messages with approval.",
+      "Meeting notes to actions.",
     ],
-    humanJudgement: ["Regulatory reporting", "Insurance & incident calls", "Customer service recovery"],
+    humanJudgement: ["Regulatory reporting", "Insurance and incident calls", "Service recovery"],
   },
   "professional-services": {
     name: "Professional services",
     problem: "proposal drafting, meeting follow-through, and knowledge reuse",
     pressures: [
       "Proposal cycles that eat billable time.",
-      "Meeting commitments lost between systems.",
-      "Knowledge trapped in individual inboxes.",
+      "Commitments lost between systems.",
+      "Knowledge trapped in inboxes.",
     ],
     workflows: [
-      "Proposal first draft from approved source material.",
-      "Meeting-notes to owner, deadline, and next action.",
-      "Internal policy and procedure search.",
-      "Customer-call summary to accountable follow-up.",
+      "Proposal first drafts.",
+      "Meeting notes to actions.",
+      "Internal policy search.",
+      "Call summary to follow-up.",
     ],
-    humanJudgement: ["Client strategy", "Fees and scope changes", "Confidentiality boundaries"],
+    humanJudgement: ["Client strategy", "Fees and scope", "Confidentiality"],
   },
 };
 
@@ -71,7 +71,7 @@ function SectorPage() {
       <PageHero
         eyebrow={`Practical AI for ${s.name.toLowerCase()} businesses`}
         title={<><span className="signal-underline">A real {s.name.toLowerCase()} problem,</span> without the expensive wrong turn.</>}
-        lede={`BNext AI helps ${s.name.toLowerCase()} owners and operating teams choose one useful workflow, test the case, and move toward safe adoption.`}
+        lede="BNext AI helps owners and operating teams choose one workflow, test the case, and adopt safely."
         ctas={<CTAButton to="/start">Find my starting point</CTAButton>}
       />
 

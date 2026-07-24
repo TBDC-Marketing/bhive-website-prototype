@@ -8,7 +8,7 @@ export const Route = createFileRoute("/eligibility")({
   head: () => ({
     meta: [
       { title: "Eligibility & FAQ — BNext AI" },
-      { name: "description", content: "Questions before you make the first move? Here is what the program asks and provides." },
+      { name: "description", content: "Questions before you make the first move? What the program asks and provides." },
       { property: "og:title", content: "BNext AI · Eligibility & FAQ" },
       { property: "og:description", content: "What the program asks of your business, what it provides, and what happens after you express interest." },
       { property: "og:url", content: "/eligibility" },
@@ -27,14 +27,14 @@ export const Route = createFileRoute("/eligibility")({
 });
 
 const eligibility = [
-  "Eligible geography: businesses operating in the Peel Region.",
-  "Business type and size: established small or mid-sized businesses.",
-  "Operating status: minimum trading history confirmed during intake.",
-  "Decision-maker participation for the duration of the route.",
-  "A workflow and test data available for the engagement.",
-  "Attendance at scheduled sessions with the between-session work completed.",
-  "Consent to measurement, reporting, and follow-up.",
-  "Excluded activities and costs confirmed during intake.",
+  "Businesses operating in Peel Region.",
+  "Established small or mid-sized businesses.",
+  "Minimum trading history, confirmed at intake.",
+  "A decision-maker participates for the full route.",
+  "A workflow and test data available.",
+  "Attendance, with between-session work completed.",
+  "Consent to measurement and follow-up.",
+  "Exclusions confirmed at intake.",
 ];
 
 function EligibilityPage() {
@@ -43,13 +43,13 @@ function EligibilityPage() {
       <PageHero
         eyebrow="Eligibility & FAQ"
         title={<>Questions before you make the <span className="signal-underline">first move?</span></>}
-        lede="Here is what the program asks of your business, what it provides, and what happens after you express interest."
+        lede="What the program asks of your business, what it provides, and what happens next."
         ctas={<CTAButton to="/start">Check my starting point</CTAButton>}
       />
 
       <Section bg="paper">
         <Eyebrow>Eligibility summary</Eyebrow>
-        <p className="mt-3 max-w-2xl text-sm text-muted-foreground">Dated version · reviewed February 2026. Full terms are confirmed during intake.</p>
+        <p className="mt-3 max-w-2xl text-sm text-muted-foreground">Reviewed February 2026. Full terms confirmed during intake.</p>
         <ul className="mt-8 grid gap-3 md:grid-cols-2">
           {eligibility.map((r) => (
             <li key={r} className="flex gap-3 rounded-sm border border-border bg-card px-4 py-3 text-sm">

@@ -32,7 +32,7 @@ function EventsIndex() {
       <PageHero
         eyebrow="Events & clinics"
         title={<>Bring the business problem. <span className="signal-underline">Leave with a next move.</span></>}
-        lede="Practical sessions, demonstrations, office hours, and peer conversations for businesses at different starting points."
+        lede="Practical sessions, demonstrations, office hours, and peer conversations. In person, small groups, no pitch."
         ctas={<CTAButton to="/events">See upcoming events</CTAButton>}
       />
 

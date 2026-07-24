@@ -21,7 +21,7 @@ function InsightsIndex() {
       <PageHero
         eyebrow="Insights"
         title={<>What matters in AI. <span className="signal-underline">What it means for your business.</span></>}
-        lede="Clear analysis for owners and operators: fewer trend summaries, more decisions you can make."
+        lede="Fewer trend summaries. More decisions you can make."
         ctas={<CTAButton to="/contact">Get the BNext Signal</CTAButton>}
       />
 
